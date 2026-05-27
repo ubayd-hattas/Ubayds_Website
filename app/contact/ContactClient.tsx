@@ -68,12 +68,11 @@ export default function ContactClient() {
     if (!form.name || !form.email || !form.message) return;
     setStatus("sending");
 
-    // Replace with your form service (e.g. Formspree):
-    // await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(form),
-    // });
+     await fetch("https://formspree.io/f/mkoekbyv", {
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify(form),
+     });
 
     await new Promise((r) => setTimeout(r, 1500));
     setStatus("success");
