@@ -1,5 +1,7 @@
 "use client";
 
+import PageTransition from "@/components/PageTransition";
+
 import { motion } from "framer-motion";
 import {
   Code2,
@@ -111,10 +113,10 @@ function SkillBar({ skill, index }: { skill: SkillItem; index: number }) {
       className="group"
     >
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-[13px] text-white/70 font-medium">{skill.name}</span>
-        <span className="text-[11px] text-white/25 font-mono">{skill.level}%</span>
+        <span className="text-[13px] text-primary font-medium">{skill.name}</span>
+        <span className="text-[11px] text-dim font-mono">{skill.level}%</span>
       </div>
-      <div className="h-1 bg-white/[0.06] rounded-full overflow-hidden mb-1">
+      <div className="h-1 bg-[var(--border)] rounded-full overflow-hidden mb-1">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${skill.level}%` }}
@@ -123,13 +125,14 @@ function SkillBar({ skill, index }: { skill: SkillItem; index: number }) {
           className="h-full bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full"
         />
       </div>
-      <p className="text-[11px] text-white/25 leading-relaxed">{skill.note}</p>
+      <p className="text-[11px] text-dim leading-relaxed">{skill.note}</p>
     </motion.div>
   );
 }
 
 export default function SkillsClient() {
   return (
+    <PageTransition>
     <div className="page-content pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -146,7 +149,7 @@ export default function SkillsClient() {
             <br />
             and what I'm learning.
           </h1>
-          <p className="text-[15px] text-white/40 leading-relaxed max-w-xl">
+          <p className="text-[15px] text-secondary leading-relaxed max-w-xl">
             These are honest self-assessments not marketing. I'm a first-year
             student. The bars reflect current ability not potential.
           </p>
@@ -157,7 +160,7 @@ export default function SkillsClient() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="text-[12px] text-white/25 mb-14 italic"
+          className="text-[12px] text-dim mb-14 italic"
         >
           Percentages are approximate and self-assessed. They will grow.
         </motion.p>
@@ -175,11 +178,11 @@ export default function SkillsClient() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <group.icon size={16} className="text-indigo-400" />
-                <h2 className="text-[14px] font-semibold text-white/90">
+                <h2 className="text-[14px] font-semibold text-primary">
                   {group.category}
                 </h2>
               </div>
-              <p className="text-[12px] text-white/30 mb-6 leading-relaxed">
+              <p className="text-[12px] text-dim mb-6 leading-relaxed">
                 {group.desc}
               </p>
               <div className="space-y-5">
@@ -199,7 +202,7 @@ export default function SkillsClient() {
           transition={{ duration: 0.6 }}
           className="mt-12 card p-7 text-center"
         >
-          <p className="text-[14px] text-white/40 leading-relaxed max-w-lg mx-auto">
+          <p className="text-[14px] text-secondary leading-relaxed max-w-lg mx-auto">
             Skills are a lagging indicator of effort. The most important thing
             I'm building right now is a deep understanding of mathematical and
             statistical foundations, everything else builds on top of that.
@@ -207,5 +210,6 @@ export default function SkillsClient() {
         </motion.div>
       </div>
     </div>
+    </PageTransition>
   );
 }

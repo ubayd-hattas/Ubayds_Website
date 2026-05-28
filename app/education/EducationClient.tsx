@@ -1,5 +1,7 @@
 "use client";
 
+import PageTransition from "@/components/PageTransition";
+
 import { motion } from "framer-motion";
 import {
   GraduationCap,
@@ -89,6 +91,7 @@ const achievements = [
 
 export default function EducationClient() {
   return (
+    <PageTransition>
     <div className="page-content pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -105,7 +108,7 @@ export default function EducationClient() {
             <br />
             right foundation.
           </h1>
-          <p className="text-[15px] text-white/40 leading-relaxed max-w-xl">
+          <p className="text-[15px] text-secondary leading-relaxed max-w-xl">
             A degree is a structure. What matters is how deeply you engage with
             it. I'm here to understand, not just to pass.
           </p>
@@ -125,10 +128,10 @@ export default function EducationClient() {
                 <GraduationCap size={18} className="text-indigo-400" />
               </div>
               <div>
-                <h2 className="text-[16px] font-semibold text-white/90">
+                <h2 className="text-[16px] font-semibold text-primary">
                   University of Cape Town
                 </h2>
-                <p className="text-[13px] text-white/40 mt-0.5">
+                <p className="text-[13px] text-secondary mt-0.5">
                   BSc Computer Science, Statistics & Data Science
                 </p>
                 <p className="text-[12px] text-indigo-400 mt-1 font-mono">
@@ -142,7 +145,7 @@ export default function EducationClient() {
           </div>
 
           <div className="mt-6 pt-6 border-t border-white/[0.06]">
-            <p className="text-[13px] text-white/40 leading-relaxed">
+            <p className="text-[13px] text-secondary leading-relaxed">
               UCT is consistently ranked as Africa's top university and among
               the world's leading research institutions. My triple major in
               Computer Science, Statistics, and Data Science is a deliberately
@@ -161,23 +164,23 @@ export default function EducationClient() {
           className="card p-7 mb-16"
         >
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.08] flex items-center justify-center shrink-0">
-              <BookOpen size={18} className="text-white/40" />
+            <div className="w-10 h-10 rounded-xl bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center shrink-0">
+              <BookOpen size={18} className="text-secondary" />
             </div>
             <div>
-              <h2 className="text-[16px] font-semibold text-white/90">
+              <h2 className="text-[16px] font-semibold text-primary">
                 Trafalgar Secondary School
               </h2>
-              <p className="text-[13px] text-white/40 mt-0.5">
+              <p className="text-[13px] text-secondary mt-0.5">
                 National Senior Certificate (NSC) · Public school
               </p>
-              <p className="text-[12px] text-white/25 font-mono mt-1">
+              <p className="text-[12px] text-dim font-mono mt-1">
                 Graduated 2025
               </p>
             </div>
           </div>
           <div className="mt-6 pt-6 border-t border-white/[0.06]">
-            <p className="text-[13px] text-white/40 leading-relaxed">
+            <p className="text-[13px] text-secondary leading-relaxed">
               I went to a public high school where there were no private 
               advantages, just the need for consistency and self-discipline. 
               I built strong results in mathematics and physical sciences 
@@ -199,7 +202,7 @@ export default function EducationClient() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-lg font-semibold text-white/90 mb-6">
+          <h2 className="text-lg font-semibold text-primary mb-6">
             Achievements & recognition
           </h2>
           <div className="space-y-3">
@@ -213,8 +216,8 @@ export default function EducationClient() {
                 className="card p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
               >
                 <div>
-                  <p className="text-[14px] font-medium text-white/80">{a.label}</p>
-                  <p className="text-[12px] text-white/35 mt-0.5">{a.detail}</p>
+                  <p className="text-[14px] font-medium text-primary">{a.label}</p>
+                  <p className="text-[12px] text-dim mt-0.5">{a.detail}</p>
                 </div>
                 <span className="shrink-0 text-[11px] font-mono text-indigo-400">
                   {a.year}
@@ -232,7 +235,7 @@ export default function EducationClient() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-lg font-semibold text-white/90 mb-6">
+          <h2 className="text-lg font-semibold text-primary mb-6">
             First-year modules
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -254,10 +257,10 @@ export default function EducationClient() {
                     {mod.code}
                   </span>
                 </div>
-                <h3 className="text-[14px] font-semibold text-white/80 mb-1.5">
+                <h3 className="text-[14px] font-semibold text-primary mb-1.5">
                   {mod.name}
                 </h3>
-                <p className="text-[13px] text-white/35 leading-relaxed">{mod.desc}</p>
+                <p className="text-[13px] text-dim leading-relaxed">{mod.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -270,7 +273,7 @@ export default function EducationClient() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-lg font-semibold text-white/90 mb-6">
+          <h2 className="text-lg font-semibold text-primary mb-6">
             Where this leads
           </h2>
           <div className="space-y-3">
@@ -294,10 +297,10 @@ export default function EducationClient() {
                   <p
                     className={`text-[14px] ${
                       t.status === "current"
-                        ? "text-white/90 font-medium"
+                        ? "text-primary font-medium"
                         : t.status === "future"
-                        ? "text-white/25"
-                        : "text-white/50"
+                        ? "text-dim"
+                        : "text-secondary"
                     }`}
                   >
                     {t.label}
@@ -309,7 +312,7 @@ export default function EducationClient() {
                   </span>
                 )}
                 {t.status === "upcoming" && (
-                  <ChevronRight size={14} className="text-white/20 shrink-0" />
+                  <ChevronRight size={14} className="text-dim shrink-0" />
                 )}
               </motion.div>
             ))}
@@ -317,5 +320,6 @@ export default function EducationClient() {
         </motion.div>
       </div>
     </div>
+    </PageTransition>
   );
 }

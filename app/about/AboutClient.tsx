@@ -1,5 +1,7 @@
 "use client";
 
+import PageTransition from "@/components/PageTransition";
+
 import { motion } from "framer-motion";
 import { MapPin, Calendar, GraduationCap, Target, Heart } from "lucide-react";
 
@@ -69,6 +71,7 @@ const timeline = [
 
 export default function AboutClient() {
   return (
+    <PageTransition>
     <div className="page-content pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -86,15 +89,15 @@ export default function AboutClient() {
             playing the long game.
           </h1>
           <div className="flex flex-wrap gap-4 mt-6">
-            <span className="flex items-center gap-1.5 text-[13px] text-white/40">
+            <span className="flex items-center gap-1.5 text-[13px] text-secondary">
               <MapPin size={13} className="text-indigo-400" />
               Cape Town, South Africa
             </span>
-            <span className="flex items-center gap-1.5 text-[13px] text-white/40">
+            <span className="flex items-center gap-1.5 text-[13px] text-secondary">
               <Calendar size={13} className="text-indigo-400" />
               Born 23 February 2008
             </span>
-            <span className="flex items-center gap-1.5 text-[13px] text-white/40">
+            <span className="flex items-center gap-1.5 text-[13px] text-secondary">
               <GraduationCap size={13} className="text-indigo-400" />
               UCT BSc Class of 2028
             </span>
@@ -109,10 +112,10 @@ export default function AboutClient() {
             initial="hidden"
             animate="show"
           >
-            <h2 className="text-lg font-semibold mb-4 text-white/90">
+            <h2 className="text-lg font-semibold mb-4 text-primary">
               Where I come from
             </h2>
-            <div className="space-y-4 text-[15px] text-white/50 leading-relaxed">
+            <div className="space-y-4 text-[15px] text-secondary leading-relaxed">
               <p>
                 I was born in Pretoria and grew up in Cape Town, a city I genuinely love.
                 My father, Dr Mahier Hattas, is the Director of Field Operations at
@@ -135,10 +138,10 @@ export default function AboutClient() {
             initial="hidden"
             animate="show"
           >
-            <h2 className="text-lg font-semibold mb-4 text-white/90">
+            <h2 className="text-lg font-semibold mb-4 text-primary">
               How I think
             </h2>
-            <div className="space-y-4 text-[15px] text-white/50 leading-relaxed">
+            <div className="space-y-4 text-[15px] text-secondary leading-relaxed">
               <p>
                 I came from a public high school where there were no special 
                 advantages, just consistency. I became known for mathematics 
@@ -165,7 +168,7 @@ export default function AboutClient() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h2 className="text-lg font-semibold mb-8 text-white/90">
+          <h2 className="text-lg font-semibold mb-8 text-primary">
             What I value
           </h2>
           <div className="grid md:grid-cols-3 gap-4">
@@ -179,10 +182,10 @@ export default function AboutClient() {
                 className="card p-6"
               >
                 <v.icon size={18} className="text-indigo-400 mb-3" />
-                <h3 className="text-[14px] font-semibold text-white/90 mb-2">
+                <h3 className="text-[14px] font-semibold text-primary mb-2">
                   {v.label}
                 </h3>
-                <p className="text-[13px] text-white/40 leading-relaxed">
+                <p className="text-[13px] text-secondary leading-relaxed">
                   {v.desc}
                 </p>
               </motion.div>
@@ -197,11 +200,11 @@ export default function AboutClient() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-lg font-semibold mb-8 text-white/90">
+          <h2 className="text-lg font-semibold mb-8 text-primary">
             The timeline
           </h2>
           <div className="relative">
-            <div className="absolute left-[72px] top-0 bottom-0 w-px bg-white/[0.06]" />
+            <div className="absolute left-[72px] top-0 bottom-0 w-px bg-[var(--border)]" />
             <div className="space-y-6">
               {timeline.map((item, i) => (
                 <motion.div
@@ -220,10 +223,10 @@ export default function AboutClient() {
                   <div className="relative flex items-start gap-4">
                     <div className="mt-[5px] w-2 h-2 rounded-full bg-indigo-500/60 shrink-0" />
                     <div>
-                      <p className="text-[14px] font-medium text-white/80">
+                      <p className="text-[14px] font-medium text-primary">
                         {item.label}
                       </p>
-                      <p className="text-[13px] text-white/35 mt-0.5">
+                      <p className="text-[13px] text-dim mt-0.5">
                         {item.detail}
                       </p>
                     </div>
@@ -235,5 +238,6 @@ export default function AboutClient() {
         </motion.div>
       </div>
     </div>
+    </PageTransition>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import PageTransition from "@/components/PageTransition";
+
 import { motion } from "framer-motion";
 import { PenLine, Clock } from "lucide-react";
 
@@ -70,13 +72,14 @@ const statusConfig = {
   },
   idea: {
     label: "Idea",
-    color: "text-white/30",
-    bg: "bg-white/[0.04] border-white/[0.08]",
+    color: "text-dim",
+    bg: "bg-[var(--surface)] border-[var(--border)]",
   },
 };
 
 export default function BlogClient() {
   return (
+    <PageTransition>
     <div className="page-content pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -93,7 +96,7 @@ export default function BlogClient() {
             <br />
             thinking out loud.
           </h1>
-          <p className="text-[15px] text-white/40 leading-relaxed max-w-xl">
+          <p className="text-[15px] text-secondary leading-relaxed max-w-xl">
             I write to clarify my own thinking about data, mathematics,
             studying and building a focused life. Nothing is published until
             it's worth reading.
@@ -110,10 +113,10 @@ export default function BlogClient() {
         >
           <Clock size={15} className="text-indigo-400 mt-0.5 shrink-0" />
           <div>
-            <p className="text-[13px] text-white/60 font-medium">
+            <p className="text-[13px] text-secondary font-medium">
               Blog launching soon
             </p>
-            <p className="text-[12px] text-white/35 mt-0.5 leading-relaxed">
+            <p className="text-[12px] text-dim mt-0.5 leading-relaxed">
               The first few posts are in draft. Below is what's coming, you
               can get a sense of the topics I care about.
             </p>
@@ -139,7 +142,7 @@ export default function BlogClient() {
                       size={15}
                       className="text-indigo-400 mt-0.5 shrink-0 group-hover:scale-110 transition-transform"
                     />
-                    <h3 className="text-[15px] font-medium text-white/85 leading-snug">
+                    <h3 className="text-[15px] font-medium text-primary leading-snug">
                       {post.title}
                     </h3>
                   </div>
@@ -149,11 +152,11 @@ export default function BlogClient() {
                     {s.label}
                   </span>
                 </div>
-                <p className="text-[13px] text-white/35 leading-relaxed ml-6 mb-3">
+                <p className="text-[13px] text-dim leading-relaxed ml-6 mb-3">
                   {post.excerpt}
                 </p>
                 <div className="ml-6">
-                  <span className="text-[11px] text-white/25">{post.topic}</span>
+                  <span className="text-[11px] text-dim">{post.topic}</span>
                 </div>
               </motion.div>
             );
@@ -168,7 +171,7 @@ export default function BlogClient() {
           transition={{ duration: 0.6 }}
           className="mt-14 max-w-xl"
         >
-          <p className="text-[14px] text-white/30 leading-relaxed border-l-2 border-indigo-500/30 pl-5">
+          <p className="text-[14px] text-dim leading-relaxed border-l-2 border-indigo-500/30 pl-5">
             I don't write for engagement metrics. I write to understand
             something better than I did before I started. If that's useful to
             someone else, good. If not, the thinking was still worth doing.
@@ -176,5 +179,6 @@ export default function BlogClient() {
         </motion.div>
       </div>
     </div>
+    </PageTransition>
   );
 }

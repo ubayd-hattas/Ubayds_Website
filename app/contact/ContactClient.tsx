@@ -1,5 +1,7 @@
 "use client";
 
+import PageTransition from "@/components/PageTransition";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -79,6 +81,7 @@ export default function ContactClient() {
   };
 
   return (
+    <PageTransition>
     <div className="page-content pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -94,7 +97,7 @@ export default function ContactClient() {
             Let's have
             <br />a real conversation.
           </h1>
-          <p className="text-[15px] text-white/40 leading-relaxed max-w-xl">
+          <p className="text-[15px] text-secondary leading-relaxed max-w-xl">
             I'm open to research collaboration, mentorship, academic
             discussions and serious professional opportunities. I respond
             thoughtfully not instantly.
@@ -111,10 +114,10 @@ export default function ContactClient() {
                 className="card p-10 text-center"
               >
                 <CheckCircle2 size={32} className="text-green-400 mx-auto mb-4" />
-                <h3 className="text-[16px] font-semibold text-white/90 mb-2">
+                <h3 className="text-[16px] font-semibold text-primary mb-2">
                   Message received
                 </h3>
-                <p className="text-[13px] text-white/40 leading-relaxed">
+                <p className="text-[13px] text-secondary leading-relaxed">
                   Thank you for reaching out. I'll read it carefully and get
                   back to you when I have something meaningful to say.
                 </p>
@@ -123,7 +126,7 @@ export default function ContactClient() {
               <div className="card p-7 space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[12px] text-white/40 mb-2 font-medium">
+                    <label className="block text-[12px] text-secondary mb-2 font-medium">
                       Name
                     </label>
                     <input
@@ -136,7 +139,7 @@ export default function ContactClient() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[12px] text-white/40 mb-2 font-medium">
+                    <label className="block text-[12px] text-secondary mb-2 font-medium">
                       Email
                     </label>
                     <input
@@ -151,7 +154,7 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-[12px] text-white/40 mb-2 font-medium">
+                  <label className="block text-[12px] text-secondary mb-2 font-medium">
                     Subject
                   </label>
                   <select
@@ -178,7 +181,7 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-[12px] text-white/40 mb-2 font-medium">
+                  <label className="block text-[12px] text-secondary mb-2 font-medium">
                     Message
                   </label>
                   <textarea
@@ -217,7 +220,7 @@ export default function ContactClient() {
                   )}
                 </button>
 
-                <p className="text-[11px] text-white/20 text-center">
+                <p className="text-[11px] text-dim text-center">
                   I read every message. Response time is typically 1–3 days.
                 </p>
               </div>
@@ -249,13 +252,13 @@ export default function ContactClient() {
                   <link.icon size={15} className="text-indigo-400" />
                 </div>
                 <div>
-                  <p className="text-[13px] font-medium text-white/80 group-hover:text-white transition-colors">
+                  <p className="text-[13px] font-medium text-primary group-hover:text-primary transition-colors">
                     {link.label}
                   </p>
                   <p className="text-[11px] text-indigo-400/70 mt-0.5 mb-1.5">
                     {link.value}
                   </p>
-                  <p className="text-[12px] text-white/30 leading-relaxed">
+                  <p className="text-[12px] text-dim leading-relaxed">
                     {link.desc}
                   </p>
                 </div>
@@ -263,8 +266,8 @@ export default function ContactClient() {
             ))}
 
             <div className="card p-5 mt-2">
-              <p className="text-[12px] text-white/30 leading-relaxed">
-                <span className="text-white/50 font-medium block mb-1">
+              <p className="text-[12px] text-dim leading-relaxed">
+                <span className="text-secondary font-medium block mb-1">
                   A note on response time
                 </span>
                 I'm a full-time student. I read everything but I don't rush
@@ -276,5 +279,6 @@ export default function ContactClient() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }
