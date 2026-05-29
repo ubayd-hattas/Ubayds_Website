@@ -47,7 +47,7 @@ const timeline = [
     year: "2017",
     label: "Moved to Cape Town",
     detail:
-      "I moved to Cape Town in the fourth grade and completed my schooling here in 2025, in a city that completely changed how I see the world.",
+      "Moved to Cape Town in fourth grade and completed my schooling here in 2025, in a city that completely changed how I see the world.",
   },
   {
     year: "2025",
