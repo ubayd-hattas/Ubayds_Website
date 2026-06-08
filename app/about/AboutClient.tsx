@@ -47,7 +47,13 @@ const timeline = [
     year: "2017",
     label: "Moved to Cape Town",
     detail:
-      "Moved to Cape Town in fourth grade and completed my schooling here in 2025, in a city that completely changed how I see the world.",
+      "Came for my dads work.",
+  },
+  {
+    year: "2021",
+    label: "Got Covid-19",
+    detail:
+      "One of my worst life expereinces, but recovered after a few weeks.",
   },
   {
     year: "2025",
@@ -117,17 +123,16 @@ export default function AboutClient() {
             </h2>
             <div className="space-y-4 text-[15px] text-secondary leading-relaxed">
               <p>
-                I was born in Pretoria and grew up in Cape Town, a city I genuinely love.
-                My father, Dr Mahier Hattas, is the Director of Field Operations at
-                Statistics South Africa. Watching him work with national data and 
-                seeing how numbers can describe an entire country made data feel real to
-                 me long before I ever studied it formally.
+                I was born in Pretoria and later moved to Cape Town, a city I genuinely love.
+                My father, Dr Mahier Hattas, is the Director of Field Operations at Statistics 
+                South Africa. Watching him work with national data and seeing how numbers can 
+                describe an entire country sparked my interest long before I began my formal studies.
               </p>
               <p>
-                I got my first computer when I was five years old. It was never a toy to me,
-                it was a tool. I learned how to navigate systems, how to build things, and 
-                how to break them just to figure out how they worked. That early exposure to
-                technology was intentional, and it completely shaped my path.
+                I received my first computer when I was five years old. It was never a toy to me but a 
+                tool. I learned how to navigate systems, build things and break them just to figure out 
+                how they worked. That early exposure to technology was invaluable and completely shaped 
+                my path.
               </p>
             </div>
           </motion.div>
@@ -143,18 +148,16 @@ export default function AboutClient() {
             </h2>
             <div className="space-y-4 text-[15px] text-secondary leading-relaxed">
               <p>
-                I came from a public high school where there were no special 
-                advantages, just consistency. I became known for mathematics 
-                and physics, not because I was effortlessly talented, but because 
-                I never stopped trying and worked systematically. I even spent my 
-                breaks tutoring junior students during matric because teaching is
-                one of the fastest ways to understand something deeply.
+                Attending a public high school taught me the value of consistency over 
+                privilege. I became known for mathematics and physics, not through effortless 
+                talent but through systematic work and persistence. During my matric year, I 
+                spent my breaks tutoring junior students because teaching remains one of the 
+                fastest ways to understand a subject deeply.
               </p>
               <p>
-                I am analytical by nature and introspective by habit. I prefer slow
-                thinking over fast reactions and I would much rather understand a 
-                problem completely than respond to it quickly. This is exactly how 
-                I approach university, code and life.
+                I am analytical by nature and introspective by habit. I prefer deliberate thinking 
+                over fast reactions and I would much rather understand a problem completely than 
+                respond to it quickly. This is exactly how I approach university, code and life.
               </p>
             </div>
           </motion.div>

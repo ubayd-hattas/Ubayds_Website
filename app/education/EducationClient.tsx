@@ -51,8 +51,8 @@ const modules = [
 
 const trajectory = [
   { year: "2026", label: "First Year BSc", status: "current" },
-  { year: "2027", label: "Second Year — Deepen Statistical & CS theory", status: "upcoming" },
-  { year: "2028", label: "Third Year — Honours Pathway / Specialisation", status: "upcoming" },
+  { year: "2027", label: "Second Year: Deepen Statistical & CS theory", status: "upcoming" },
+  { year: "2028", label: "Third Year: Honours Pathway / Specialisation", status: "upcoming" },
   { year: "2029+", label: "Postgraduate research or industry", status: "future" },
 ];
 
@@ -86,6 +86,11 @@ const achievements = [
     label: "Mathematics Tutor",
     detail: "Voluntarily tutored junior grade students during breaks throughout matric year",
     year: "2025",
+  },
+  {
+    label: "Football Player Of The Year",
+    detail: "Best footballer out of all my friends :)",
+    year: "2026",
   },
 ];
 
@@ -135,7 +140,7 @@ export default function EducationClient() {
                   BSc Computer Science, Statistics & Data Science
                 </p>
                 <p className="text-[12px] text-indigo-400 mt-1 font-mono">
-                  2026 — 2028
+                  2026 — Present
                 </p>
               </div>
             </div>
@@ -172,7 +177,7 @@ export default function EducationClient() {
                 Trafalgar Secondary School
               </h2>
               <p className="text-[13px] text-secondary mt-0.5">
-                National Senior Certificate (NSC) · Public school
+                National Senior Certificate (NSC)
               </p>
               <p className="text-[12px] text-dim font-mono mt-1">
                 Graduated 2025
@@ -181,15 +186,13 @@ export default function EducationClient() {
           </div>
           <div className="mt-6 pt-6 border-t border-white/[0.06]">
             <p className="text-[13px] text-secondary leading-relaxed">
-              I went to a public high school where there were no private 
-              advantages, just the need for consistency and self-discipline. 
-              I built strong results in mathematics and physical sciences 
-              through methodical study habits and I spent my senior year both 
-              leading the student body as Head Boy and tutoring my peers. I am 
-              incredibly grateful to my principal and teachers for the belief 
-              they had in me. The guidance and opportunities they provided 
-              helped me immensely on my journey, giving me the foundation I needed to 
-              be exactly where I am today.
+              My high school years taught me the true value of consistency and 
+              self-discipline. I built strong results in mathematics and physical 
+              sciences through methodical study habits and I spent my senior year 
+              both leading the student body as Head Boy and tutoring my peers. I am 
+              incredibly grateful to my principal and teachers for their belief in me. 
+              The guidance and opportunities they provided gave me the foundation I 
+              needed to be exactly where I am today.
             </p>
           </div>
         </motion.div>

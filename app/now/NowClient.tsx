@@ -59,8 +59,8 @@ const sections = [
     title: "Building",
     items: [
       {
-        label: "Statistical Inference Explorer",
-        detail: "A Python-based tool for interactively exploring sampling distributions. Getting the visualisation right is harder than I thought.",
+        label: "SA Data Hub",
+        detail: "A website that aims to makes South African data easier to access and interpret.",
       },
       {
         label: "This website",
