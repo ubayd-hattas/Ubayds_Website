@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ubaydhattas.vercel.app"),
+  metadataBase: new URL("https://ubayd.me"),
   title: {
     default: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
     template: "%s | Ubayd Hattas",
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
     "Machine Learning",
     "BSc student",
   ],
-  authors: [{ name: "Ubayd Hattas", url: "https://ubaydhattas.vercel.app" }],
+  authors: [{ name: "Ubayd Hattas", url: "https://ubayd.me" }],
   creator: "Ubayd Hattas",
   openGraph: {
     type: "website",
     locale: "en_ZA",
-    url: "https://ubaydhattas.vercel.app",
+    url: "https://ubayd.me",
     siteName: "Ubayd Hattas",
     title: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
     description:
@@ -85,8 +85,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Ubayd Hattas",
-  url: "https://ubaydhattas.vercel.app",
-  image: "https://ubaydhattas.com/profile.jpg",
+  url: "https://ubayd.me",
+  image: "https://ubayd.me/profile.jpg",
   sameAs: [
     "https://github.com/ubayd-hattas",
     "https://www.linkedin.com/in/ubayd-hattas-0608a2349/",
@@ -114,7 +114,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Ubayd Hattas",
-  "url": "https://ubaydhattas.vercel.app",
+  "url": "https://ubayd.me",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
