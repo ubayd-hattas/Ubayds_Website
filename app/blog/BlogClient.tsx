@@ -141,6 +141,110 @@ const ArticleStatsPost = () => (
   </article>
 );
 
+const ArticleDataHubPost = () => (
+  <article className="prose-article">
+    <p>
+      During my first semester at UCT, most of my time was spent adjusting to
+      university life. The workload was heavier than anything I had experienced
+      before and balancing academics, health, social life and personal projects
+      was a challenge.
+    </p>
+    <p>One thing that helped me a lot during that transition was statistics.</p>
+    <p>
+      I found myself constantly thinking about things in terms of outcomes,
+      probabilities and trade offs. Which habits would benefit me the most over
+      time? Which routines had the biggest impact on my academics and wellbeing?
+      How could I spend my limited time in the most effective way possible?
+    </p>
+    <p>
+      As I started looking for data to answer some of these questions, I noticed
+      something frustrating. Finding specific South African data was often much
+      harder than it should have been.
+    </p>
+
+    <p className="article-aside">
+      This made me curious about how accessible data actually is in South Africa.
+    </p>
+
+    <p>
+      Naturally, the first place I looked was Stats SA. Statistics had always
+      been something I was exposed to growing up, so it felt like the obvious
+      place to start. It contains an incredible amount of valuable information,
+      but I quickly realized that navigating it as an ordinary user could be
+      difficult.
+    </p>
+    <p>
+      Many datasets were buried inside reports, spread across different
+      publications or required a fair amount of searching before you could find
+      what you needed. For someone who just wanted a quick answer or
+      visualization, the process could feel overwhelming.
+    </p>
+
+    <div className="article-separator" />
+
+    <p className="article-emphasis">
+      That got me thinking. What if there was a simpler way to explore South
+      African data?
+    </p>
+
+    <p>
+      Not long after successfully launching my personal website, I realized I had
+      developed enough web development skills to actually build something around
+      this idea. I wanted to create a platform that made data easier to access,
+      understand and explore.
+    </p>
+    <p>On 31 May 2026, I launched SA Data Hub.</p>
+    <p>The goal was simple: make South African data easier to understand.</p>
+    <p>
+      Over the following weeks, I spent a lot of time collecting datasets,
+      cleaning them, converting CSV files into JSON files and integrating them
+      into the website. It was a valuable learning experience, but it also taught
+      me an important lesson about scalability.
+    </p>
+
+    <p className="article-aside">
+      The more data I added, the more I realized that manually managing files was
+      becoming inefficient.
+    </p>
+
+    <div className="article-separator" />
+
+    <p>
+      At the time of writing this, I am currently on my winter break. Alongside
+      attending my first hackathon, the Global South AI Safety Hackathon in Cape
+      Town and participating in various events, I have been learning PostgreSQL
+      and exploring better ways to manage data through databases rather than
+      static files.
+    </p>
+    <p>
+      My goal is to make SA Data Hub far more automated. I want data collection,
+      storage and updates to rely less on manual work and more on databases, APIs,
+      and Python scripts. Ideally, by the time second semester begins, most of the
+      maintenance will be handled behind the scenes.
+    </p>
+    <p>For now, I am not rushing into new projects.</p>
+    <p>
+      I want to continue improving SA Data Hub because I believe some projects
+      become more valuable the longer you stick with them. Every new dataset,
+      feature and improvement adds to what already exists. The project compounds
+      over time.
+    </p>
+
+    <div className="article-separator" />
+
+    <p className="article-emphasis">
+      Looking back, it is still strange to think that this all started because I
+      was trying to understand my own routines better during my first semester at
+      university.
+    </p>
+
+    <p>
+      What began as curiosity about data eventually turned into a platform built
+      to help others explore it too.
+    </p>
+  </article>
+);
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Data
 // ─────────────────────────────────────────────────────────────────────────────
@@ -155,6 +259,16 @@ const publishedPosts: PublishedPost[] = [
     date: "29 May 2026",
     readingTime: 4,
     content: <ArticleStatsPost />,
+  },
+  {
+    id: "sa-data-hub",
+    title: "How I Built a South African Data Hub in My First Semester at UCT",
+    excerpt:
+      "What started as a personal curiosity about South African data turned into a platform built to make that data easier to explore. This is the story of building SA Data Hub, the lessons it taught me and where it is heading next.",
+    tags: ["Projects", "Data", "UCT"],
+    date: "13 Jun 2026",
+    readingTime: 5,
+    content: <ArticleDataHubPost />,
   },
 ];
 
