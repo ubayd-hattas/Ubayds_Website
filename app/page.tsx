@@ -72,9 +72,9 @@ export default function Home() {
                   className="text-lg md:text-xl font-light leading-relaxed mb-4 max-w-xl"
                   style={{ color: "var(--foreground-muted)" }}
                 >
-                  Student of mathematics and computation.
+                  BSc student at UCT — Computer Science, Statistics & Data Science.
                   <br />
-                  Building the foundations for a life in data science and AI.
+                  Building tools that make South African data accessible.
                 </motion.p>
 
                 {/* Short intro */}
@@ -83,9 +83,18 @@ export default function Home() {
                   className="text-[15px] leading-relaxed mb-10 max-w-lg"
                   style={{ color: "var(--foreground-dim)" }}
                 >
-                  First-year BSc student at the University of Cape Town — majoring
-                  in Computer Science, Statistics & Data Science. From Pretoria,
-                  raised in Cape Town, South Africa.
+                  First-year at the University of Cape Town. Creator of{" "}
+                  <a
+                    href="https://sadatahub.tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    SA Data Hub
+                  </a>
+                  {" "}— a platform making South African public data easier to explore.
+                  From Pretoria, raised in Cape Town.
                 </motion.p>
 
                 {/* CTAs */}
@@ -97,6 +106,14 @@ export default function Home() {
                     Learn about me <ArrowRight size={14} />
                   </Link>
                   <Link href="/projects" className="btn-secondary">View projects</Link>
+                  <a
+                    href="https://sadatahub.tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                  >
+                    SA Data Hub
+                  </a>
                   <a href="/cv.pdf" download="Ubayd_Hattas_CV.pdf" className="btn-secondary">
                     Download CV
                   </a>

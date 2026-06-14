@@ -61,12 +61,12 @@ const projects: Project[] = [
   {
     title: "SA Data Hub",
     description:
-      "A modern platform for exploring South African public data through interactive visualizations, province-level comparisons, data stories, and transparent methodologies.",
+      "A public platform making South African data accessible to students, journalists, and citizens. Explore population, employment, and economic data from Statistics South Africa, SARB, and other public institutions — with interactive visualisations, province comparisons, and transparent methodologies.",
     longDesc:
       "SA Data Hub combines official datasets from Statistics South Africa, the SARB, and other public institutions with interactive charts, province comparisons, historical timelines, and educational insights. The goal is not only to display data, but to help users understand what the data means.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Python", "Vercel"],
     github: "https://github.com/ubayd-hattas",
-    live: "https://sadatahub.vercel.app",
+    live: "https://sadatahub.tech",
     status: "active",
     featured: true,
     accentColor: "rgba(16, 185, 129, 0.10)",

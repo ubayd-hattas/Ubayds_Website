@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Ubayd Hattas",
   },
   description:
-    "Ubayd Hattas is a first-year BSc student at the University of Cape Town, majoring in Computer Science, Statistics & Data Science. From Cape Town, South Africa — building towards a career in AI and data science.",
+    "Ubayd Hattas is a first-year BSc student at the University of Cape Town, majoring in Computer Science, Statistics & Data Science. Creator of SA Data Hub — making South African data accessible. From Cape Town, South Africa.",
   keywords: [
     "Ubayd Hattas",
     "Ubayd",
@@ -35,12 +35,18 @@ export const metadata: Metadata = {
     "Statistics",
     "South Africa",
     "Cape Town",
+    "SA Data Hub",
+    "sadatahub.tech",
+    "South African data",
     "AI",
     "Machine Learning",
     "BSc student",
   ],
   authors: [{ name: "Ubayd Hattas", url: "https://ubayd.me" }],
   creator: "Ubayd Hattas",
+  alternates: {
+    canonical: "https://ubayd.me",
+  },
   openGraph: {
     type: "website",
     locale: "en_ZA",
@@ -48,13 +54,13 @@ export const metadata: Metadata = {
     siteName: "Ubayd Hattas",
     title: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
     description:
-      "First-year BSc student at UCT majoring in Computer Science, Statistics & Data Science. Building towards a future in AI and data science.",
+      "First-year BSc student at UCT majoring in Computer Science, Statistics & Data Science. Creator of SA Data Hub — making South African public data accessible to everyone.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ubayd Hattas — Data Science Student",
+        alt: "Ubayd Hattas — Data Science Student at UCT",
       },
     ],
   },
@@ -62,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
     description:
-      "First-year BSc student at UCT majoring in Computer Science, Statistics & Data Science.",
+      "First-year BSc student at UCT majoring in Computer Science, Statistics & Data Science. Creator of SA Data Hub.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -113,8 +119,17 @@ const jsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Ubayd Hattas",
-  "url": "https://ubayd.me",
+  name: "Ubayd Hattas",
+  url: "https://ubayd.me",
+  description: "Personal website of Ubayd Hattas — UCT BSc student in Computer Science, Statistics & Data Science. Creator of SA Data Hub.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://ubayd.me/blog?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -130,14 +145,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-base text-primary transition-colors duration-300`}
         style={{ background: "var(--background)", color: "var(--foreground)" }}
       >
         <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium focus:text-white"
+            style={{ background: "var(--accent)" }}
+          >
+            Skip to content
+          </a>
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />

@@ -47,13 +47,7 @@ const timeline = [
     year: "2017",
     label: "Moved to Cape Town",
     detail:
-      "Came for my dads work.",
-  },
-  {
-    year: "2021",
-    label: "Got Covid-19",
-    detail:
-      "One of my worst life expereinces, but recovered after a few weeks.",
+      "Came for my dad's work.",
   },
   {
     year: "2025",
