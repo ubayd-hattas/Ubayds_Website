@@ -3,7 +3,7 @@
 import PageTransition from "@/components/PageTransition";
 
 import { motion } from "framer-motion";
-import { MapPin, Calendar, GraduationCap, Target, Heart } from "lucide-react";
+import { MapPin, Calendar, GraduationCap, Target, Heart, Award } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -46,8 +46,7 @@ const timeline = [
   {
     year: "2017",
     label: "Moved to Cape Town",
-    detail:
-      "Came for my dad's work.",
+    detail: "Came for my dad's work. A city I've grown to genuinely love.",
   },
   {
     year: "2025",
@@ -57,7 +56,7 @@ const timeline = [
   },
   {
     year: "2025",
-    label: "Matric NSC Top Achiever",
+    label: "NSC Top Achiever",
     detail:
       "Top achievements in Mathematics and Physics. Top 5 in my school. Maths tutor for junior grades throughout my senior year.",
   },
@@ -65,7 +64,13 @@ const timeline = [
     year: "2026",
     label: "Began BSc at UCT",
     detail:
-      "A first-year student at the University of Cape Town, majoring in Computer Science, Statistics, and Data Science.",
+      "First-year student at the University of Cape Town, majoring in Computer Science, Statistics, and Data Science.",
+  },
+   {
+    year: "2026",
+    label: "Launched SA Data Hub",
+    detail:
+      "Built and shipped sadatahub.tech — a public platform making South African statistics accessible to anyone, with interactive visualisations and transparent data sourcing.",
   },
 ];
 
@@ -90,24 +95,49 @@ export default function AboutClient() {
           </h1>
           <div className="flex flex-wrap gap-4 mt-6">
             <span className="flex items-center gap-1.5 text-[13px] text-secondary">
-              <MapPin size={13} className="text-indigo-400" />
+              <MapPin size={13} className="text-indigo-400" aria-hidden="true" />
               Cape Town, South Africa
             </span>
             <span className="flex items-center gap-1.5 text-[13px] text-secondary">
-              <Calendar size={13} className="text-indigo-400" />
+              <Calendar size={13} className="text-indigo-400" aria-hidden="true" />
               Born 23 February 2008
             </span>
             <span className="flex items-center gap-1.5 text-[13px] text-secondary">
-              <GraduationCap size={13} className="text-indigo-400" />
+              <GraduationCap size={13} className="text-indigo-400" aria-hidden="true" />
               UCT BSc Class of 2028
             </span>
+          </div>
+        </motion.div>
+
+        {/* Key credentials — surfaced early */}
+        <motion.div
+          custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mb-16"
+        >
+          <div className="grid md:grid-cols-3 gap-3">
+            {[
+              { icon: Award, label: "Former Head Boy", detail: "Led the student body in matric" },
+              { icon: Award, label: "NSC Top Achiever", detail: "Top 5 in school · Maths & Physics" },
+              { icon: GraduationCap, label: "Creator of SA Data Hub", detail: "Public South African data platform" },
+            ].map((item, i) => (
+              <div key={i} className="card p-4 flex items-start gap-3">
+                <item.icon size={15} className="text-indigo-400 mt-0.5 shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="text-[13px] font-semibold text-primary">{item.label}</p>
+                  <p className="text-[12px] text-dim mt-0.5">{item.detail}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
         {/* Bio sections */}
         <div className="grid md:grid-cols-2 gap-16 mb-20">
           <motion.div
-            custom={1}
+            custom={2}
             variants={fadeUp}
             initial="hidden"
             animate="show"
@@ -118,21 +148,21 @@ export default function AboutClient() {
             <div className="space-y-4 text-[15px] text-secondary leading-relaxed">
               <p>
                 I was born in Pretoria and later moved to Cape Town, a city I genuinely love.
-                My father, Dr Mahier Hattas, is the Director of Field Operations at Statistics 
-                South Africa. Watching him work with national data and seeing how numbers can 
+                My father, Dr Mahier Hattas, is the Director of Field Operations at Statistics
+                South Africa. Watching him work with national data and seeing how numbers can
                 describe an entire country sparked my interest long before I began my formal studies.
               </p>
               <p>
-                I received my first computer when I was five years old. It was never a toy to me but a 
-                tool. I learned how to navigate systems, build things and break them just to figure out 
-                how they worked. That early exposure to technology was invaluable and completely shaped 
+                I received my first computer when I was five years old. It was never a toy to me but a
+                tool. I learned how to navigate systems, build things and break them just to figure out
+                how they worked. That early exposure to technology was invaluable and completely shaped
                 my path.
               </p>
             </div>
           </motion.div>
 
           <motion.div
-            custom={2}
+            custom={3}
             variants={fadeUp}
             initial="hidden"
             animate="show"
@@ -142,15 +172,15 @@ export default function AboutClient() {
             </h2>
             <div className="space-y-4 text-[15px] text-secondary leading-relaxed">
               <p>
-                Attending a public high school taught me the value of consistency over 
-                privilege. I became known for mathematics and physics, not through effortless 
-                talent but through systematic work and persistence. During my matric year, I 
-                spent my breaks tutoring junior students because teaching remains one of the 
+                Attending a public high school taught me the value of consistency over
+                privilege. I became known for mathematics and physics, not through effortless
+                talent but through systematic work and persistence. During my matric year, I
+                spent my breaks tutoring junior students because teaching remains one of the
                 fastest ways to understand a subject deeply.
               </p>
               <p>
-                I am analytical by nature and introspective by habit. I prefer deliberate thinking 
-                over fast reactions and I would much rather understand a problem completely than 
+                I am analytical by nature and introspective by habit. I prefer deliberate thinking
+                over fast reactions and I would much rather understand a problem completely than
                 respond to it quickly. This is exactly how I approach university, code and life.
               </p>
             </div>
@@ -178,7 +208,7 @@ export default function AboutClient() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="card p-6"
               >
-                <v.icon size={18} className="text-indigo-400 mb-3" />
+                <v.icon size={18} className="text-indigo-400 mb-3" aria-hidden="true" />
                 <h3 className="text-[14px] font-semibold text-primary mb-2">
                   {v.label}
                 </h3>
@@ -201,7 +231,7 @@ export default function AboutClient() {
             The timeline
           </h2>
           <div className="relative">
-            <div className="absolute left-[72px] top-0 bottom-0 w-px bg-[var(--border)]" />
+            <div className="absolute left-[72px] top-0 bottom-0 w-px bg-[var(--border)]" aria-hidden="true" />
             <div className="space-y-6">
               {timeline.map((item, i) => (
                 <motion.div
@@ -218,7 +248,7 @@ export default function AboutClient() {
                     </span>
                   </div>
                   <div className="relative flex items-start gap-4">
-                    <div className="mt-[5px] w-2 h-2 rounded-full bg-indigo-500/60 shrink-0" />
+                    <div className="mt-[5px] w-2 h-2 rounded-full bg-indigo-500/60 shrink-0" aria-hidden="true" />
                     <div>
                       <p className="text-[14px] font-medium text-primary">
                         {item.label}

@@ -8,6 +8,7 @@ export default function Footer() {
     <footer
       className="relative z-10 mt-20"
       style={{ borderTop: "1px solid var(--border)" }}
+      aria-label="Site footer"
     >
       <div className="max-w-5xl mx-auto px-6 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -16,7 +17,16 @@ export default function Footer() {
               © {year} Ubayd Hattas · Cape Town, South Africa
             </p>
             <p className="text-[12px] mt-1" style={{ color: "var(--foreground-dim)", opacity: 0.7 }}>
-              BSc Computer Science, Statistics & Data Science — UCT
+              BSc Computer Science, Statistics &amp; Data Science — UCT ·{" "}
+              <a
+                href="https://sadatahub.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity hover:opacity-80"
+                aria-label="Visit SA Data Hub"
+              >
+                SA Data Hub
+              </a>
             </p>
           </div>
 
@@ -25,34 +35,35 @@ export default function Footer() {
               href="https://github.com/ubayd-hattas"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
+              aria-label="Ubayd Hattas on GitHub"
               className="transition-opacity hover:opacity-80"
               style={{ color: "var(--foreground-dim)" }}
             >
-              <Github size={17} />
+              <Github size={17} aria-hidden="true" />
             </a>
             <a
               href="https://www.linkedin.com/in/ubayd-hattas-0608a2349/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="Ubayd Hattas on LinkedIn"
               className="transition-opacity hover:opacity-80"
               style={{ color: "var(--foreground-dim)" }}
             >
-              <Linkedin size={17} />
+              <Linkedin size={17} aria-hidden="true" />
             </a>
             <a
               href="mailto:uhattas@gmail.com"
-              aria-label="Email"
+              aria-label="Email Ubayd Hattas"
               className="transition-opacity hover:opacity-80"
               style={{ color: "var(--foreground-dim)" }}
             >
-              <Mail size={17} />
+              <Mail size={17} aria-hidden="true" />
             </a>
             <Link
               href="/now"
               className="text-[12px] font-medium transition-opacity hover:opacity-80"
               style={{ color: "var(--foreground-dim)" }}
+              aria-label="What Ubayd is doing now"
             >
               /now
             </Link>

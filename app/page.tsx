@@ -22,7 +22,7 @@ const focusAreas = [
   {
     icon: BarChart2,
     label: "Statistics & Data Science",
-    desc: "Finding signal in noise. Building rigorous frameworks for understanding the world through data.",
+    desc: "Finding signal in noise. Building rigorous frameworks for understanding South Africa through data.",
   },
   {
     icon: Brain,
@@ -66,54 +66,63 @@ export default function Home() {
                   <span className="gradient-text">Hattas</span>
                 </motion.h1>
 
-                {/* Tagline */}
+                {/* Primary identity line — who, where, what */}
                 <motion.p
                   custom={2} variants={fadeUp} initial="hidden" animate="show"
-                  className="text-lg md:text-xl font-light leading-relaxed mb-4 max-w-xl"
+                  className="text-lg md:text-xl font-light leading-relaxed mb-3 max-w-xl"
                   style={{ color: "var(--foreground-muted)" }}
                 >
-                  BSc student at UCT — Computer Science, Statistics & Data Science.
-                  <br />
-                  Building tools that make South African data accessible.
+                  BSc student at UCT · Computer Science, Statistics &amp; Data Science
                 </motion.p>
 
-                {/* Short intro */}
+                {/* Credibility line — achievements, not boasting */}
                 <motion.p
                   custom={3} variants={fadeUp} initial="hidden" animate="show"
-                  className="text-[15px] leading-relaxed mb-10 max-w-lg"
+                  className="text-[13px] font-medium tracking-wide mb-6 max-w-xl"
                   style={{ color: "var(--foreground-dim)" }}
                 >
-                  First-year at the University of Cape Town. Creator of{" "}
+                  Former Head Boy · NSC Top Achiever · Creator of{" "}
                   <a
                     href="https://sadatahub.tech"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors"
+                    className="transition-colors font-semibold"
                     style={{ color: "var(--accent)" }}
+                    aria-label="SA Data Hub — South African public data platform"
                   >
                     SA Data Hub
                   </a>
-                  {" "}— a platform making South African public data easier to explore.
+                </motion.p>
+
+                {/* Short supporting text */}
+                <motion.p
+                  custom={4} variants={fadeUp} initial="hidden" animate="show"
+                  className="text-[15px] leading-relaxed mb-10 max-w-lg"
+                  style={{ color: "var(--foreground-dim)" }}
+                >
+                  First-year at the University of Cape Town, building tools that make
+                  South African public data easier to explore and understand.
                   From Pretoria, raised in Cape Town.
                 </motion.p>
 
                 {/* CTAs */}
                 <motion.div
-                  custom={4} variants={fadeUp} initial="hidden" animate="show"
+                  custom={5} variants={fadeUp} initial="hidden" animate="show"
                   className="flex flex-wrap gap-3 mb-12"
                 >
                   <Link href="/about" className="btn-primary">
                     Learn about me <ArrowRight size={14} />
                   </Link>
-                  <Link href="/projects" className="btn-secondary">View projects</Link>
                   <a
                     href="https://sadatahub.tech"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-secondary"
+                    aria-label="Visit SA Data Hub — South African public data platform"
                   >
-                    SA Data Hub
+                    SA Data Hub ↗
                   </a>
+                  <Link href="/projects" className="btn-secondary">View projects</Link>
                   <a href="/cv.pdf" download="Ubayd_Hattas_CV.pdf" className="btn-secondary">
                     Download CV
                   </a>
@@ -121,7 +130,7 @@ export default function Home() {
 
                 {/* Social links */}
                 <motion.div
-                  custom={5} variants={fadeUp} initial="hidden" animate="show"
+                  custom={6} variants={fadeUp} initial="hidden" animate="show"
                   className="flex items-center gap-5"
                 >
                   {[
@@ -134,12 +143,13 @@ export default function Home() {
                       href={href}
                       target={href.startsWith("http") ? "_blank" : undefined}
                       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      aria-label={label}
                       className="flex items-center gap-2 text-[13px] transition-colors"
                       style={{ color: "var(--foreground-dim)" }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = "var(--foreground)"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = "var(--foreground-dim)"; }}
                     >
-                      <Icon size={15} />
+                      <Icon size={15} aria-hidden="true" />
                       {label}
                     </a>
                   ))}
@@ -148,15 +158,15 @@ export default function Home() {
 
               {/* Profile image */}
               <motion.div
-                custom={6} variants={fadeUp} initial="hidden" animate="show"
+                custom={7} variants={fadeUp} initial="hidden" animate="show"
                 className="hidden lg:flex justify-end items-center"
               >
                 <div className="relative">
                   <div className="absolute inset-0 blur-3xl rounded-full"
-                    style={{ background: "rgba(99,102,241,0.15)" }} />
+                    style={{ background: "rgba(99,102,241,0.15)" }} aria-hidden="true" />
                   <Image
                     src="/profile.jpg"
-                    alt="Ubayd Hattas"
+                    alt="Ubayd Hattas — BSc student at UCT"
                     width={300}
                     height={300}
                     priority
@@ -177,7 +187,7 @@ export default function Home() {
               viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="flex items-center gap-2 mb-10"
             >
-              <BookOpen size={14} style={{ color: "var(--accent)" }} />
+              <BookOpen size={14} style={{ color: "var(--accent)" }} aria-hidden="true" />
               <span className="text-[13px] uppercase tracking-widest font-medium"
                 style={{ color: "var(--foreground-dim)" }}>
                 Currently studying
@@ -193,7 +203,7 @@ export default function Home() {
                   className="card p-6 group"
                 >
                   <area.icon size={20} className="mb-4 group-hover:scale-110 transition-transform"
-                    style={{ color: "var(--accent)" }} />
+                    style={{ color: "var(--accent)" }} aria-hidden="true" />
                   <h3 className="text-[14px] font-semibold mb-2" style={{ color: "var(--foreground)" }}>
                     {area.label}
                   </h3>
@@ -215,14 +225,59 @@ export default function Home() {
                   University of Cape Town
                 </p>
                 <p className="text-[12px] mt-0.5" style={{ color: "var(--foreground-dim)" }}>
-                  BSc · Computer Science, Statistics & Data Science · 2026–2028
+                  BSc · Computer Science, Statistics &amp; Data Science · 2026–2028
                 </p>
               </div>
               <Link href="/education"
                 className="flex items-center gap-1 text-[12px] transition-colors"
-                style={{ color: "var(--accent)" }}>
-                Details <ChevronRight size={13} />
+                style={{ color: "var(--accent)" }}
+                aria-label="View education details">
+                Details <ChevronRight size={13} aria-hidden="true" />
               </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SA Data Hub highlight */}
+        <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
+          <div className="max-w-5xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="card p-6 md:p-8"
+              style={{ borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.04)" }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="max-w-xl">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl" aria-hidden="true">🗺️</span>
+                    <span className="text-[11px] uppercase tracking-widest font-medium"
+                      style={{ color: "var(--accent)" }}>Featured project</span>
+                  </div>
+                  <h2 className="text-[18px] font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+                    SA Data Hub
+                  </h2>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--foreground-muted)" }}>
+                    A public platform making South African statistics accessible to students, journalists,
+                    and citizens — with interactive visualisations, province comparisons, and transparent
+                    data sourcing. Built on data from Statistics South Africa and the SARB.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 shrink-0">
+                  <a
+                    href="https://sadatahub.tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                    aria-label="Visit SA Data Hub website"
+                  >
+                    Visit SA Data Hub <ArrowRight size={14} aria-hidden="true" />
+                  </a>
+                  <Link href="/projects" className="btn-secondary text-center">
+                    All projects
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -247,7 +302,7 @@ export default function Home() {
               <Link href="/about"
                 className="flex items-center gap-2 text-[14px] font-medium transition-colors"
                 style={{ color: "var(--accent)" }}>
-                Read more about me <ArrowRight size={14} />
+                Read more about me <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
@@ -268,7 +323,7 @@ export default function Home() {
                 Whether you're a researcher, recruiter, or fellow student — I'm always open to a good conversation.
               </p>
               <Link href="/contact" className="btn-primary mx-auto">
-                Get in touch <ArrowRight size={14} />
+                Get in touch <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
