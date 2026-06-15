@@ -5,8 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight, Github, Linkedin, Mail,
-  BookOpen, ChevronRight, Sparkles, BarChart2, Brain, Code2,
+  BookOpen, ChevronRight, Sparkles, BarChart2, Brain, Code2, PenLine,
 } from "lucide-react";
+import { publishedPostsMeta } from "./blog/posts";
 import PageTransition from "@/components/PageTransition";
 
 const fadeUp = {
@@ -259,8 +260,9 @@ export default function Home() {
                   </h2>
                   <p className="text-[14px] leading-relaxed" style={{ color: "var(--foreground-muted)" }}>
                     A public platform making South African statistics accessible to students, journalists,
-                    and citizens — with interactive visualisations, province comparisons, and transparent
-                    data sourcing. Built on data from Statistics South Africa and the SARB.
+                    and citizens. Includes interactive dashboards, a province explorer, data stories,
+                    public datasets, methodology documentation, and regular updates — all sourced from
+                    Statistics South Africa and the SARB.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 shrink-0">
@@ -305,6 +307,70 @@ export default function Home() {
                 Read more about me <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Latest Writing */}
+        <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
+          <div className="max-w-5xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="flex items-center justify-between mb-8"
+            >
+              <div className="flex items-center gap-2">
+                <PenLine size={14} style={{ color: "var(--accent)" }} aria-hidden="true" />
+                <span className="text-[13px] uppercase tracking-widest font-medium"
+                  style={{ color: "var(--foreground-dim)" }}>
+                  Latest writing
+                </span>
+              </div>
+              <Link href="/blog"
+                className="flex items-center gap-1 text-[12px] transition-colors"
+                style={{ color: "var(--accent)" }}
+                aria-label="View all blog posts">
+                All posts <ChevronRight size={13} aria-hidden="true" />
+              </Link>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {publishedPostsMeta.slice(0, 2).map((post, i) => (
+                <motion.div
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }}
+                >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="card p-6 group flex flex-col h-full block"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      {post.tags.slice(0, 2).map((tag) => (
+                        <span key={tag} className="tag text-[11px]">{tag}</span>
+                      ))}
+                    </div>
+                    <h3 className="text-[15px] font-semibold leading-snug mb-2 group-hover:text-[color:var(--accent)] transition-colors"
+                      style={{ color: "var(--foreground)" }}>
+                      {post.title}
+                    </h3>
+                    <p className="text-[13px] leading-relaxed mb-4 flex-1"
+                      style={{ color: "var(--foreground-muted)" }}>
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="text-[12px]" style={{ color: "var(--foreground-dim)" }}>
+                        {post.date} · {post.readingTime} min read
+                      </span>
+                      <span className="flex items-center gap-1 text-[12px] font-medium transition-colors"
+                        style={{ color: "var(--accent)" }}>
+                        Read <ArrowRight size={12} aria-hidden="true" />
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 

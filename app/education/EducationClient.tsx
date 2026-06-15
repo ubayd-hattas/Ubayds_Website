@@ -11,6 +11,7 @@ import {
   Cpu,
   TrendingUp,
   ChevronRight,
+  Compass,
 } from "lucide-react";
 
 const fadeUp = {
@@ -27,30 +28,30 @@ const modules = [
     icon: Calculator,
     code: "MAM1031F & MAM1032S",
     name: "Mathematics",
-    desc: "Calculus, linear algebra and mathematical reasoning form the language that everything else is built on.",
+    desc: "Right now this means calculus and linear algebra — the language used to describe almost everything I'll build later, from statistical models to machine learning.",
   },
   {
     icon: TrendingUp,
     code: "STA1006S",
     name: "Mathematical Statistics",
-    desc: "An introduction to mathematical statistics and probability, focusing on the theoretical foundations needed to make sense of complex data.",
+    desc: "Working through probability theory and the early foundations of statistical inference — the theory behind every chart and conclusion I put on SA Data Hub.",
   },
   {
     icon: Cpu,
     code: "CSC1015F & CSC1016S",
     name: "Computer Science",
-    desc: "Algorithms, data structures, and computational thinking. Writing code that is correct and efficient.",
+    desc: "Building up algorithms and data structures in Python — writing code that's correct and efficient, which feeds directly into how I build and ship projects like SA Data Hub.",
   },
   {
     icon: FlaskConical,
     code: "PHY1023H",
     name: "Physics",
-    desc: "An introduction to mechanics and the properties of matter, focusing on how foundational physical forces and conservation laws govern real-world systems.",
+    desc: "Mechanics and the properties of matter — outside my major, but it sharpens the same muscle: modelling a real system with the right assumptions and the right maths.",
   },
 ];
 
 const trajectory = [
-  { year: "2026", label: "First Year BSc", status: "current" },
+  { year: "2026", label: "First Year: Mathematical, statistical & computational foundations", status: "current" },
   { year: "2027", label: "Second Year: Deepen Statistical & CS theory", status: "upcoming" },
   { year: "2028", label: "Third Year: Honours Pathway / Specialisation", status: "upcoming" },
   { year: "2029+", label: "Postgraduate research or industry", status: "future" },
@@ -87,11 +88,6 @@ const achievements = [
     detail: "Voluntarily tutored junior grade students during breaks throughout matric year",
     year: "2025",
   },
-  {
-    label: "Football Player Of The Year",
-    detail: "Best footballer out of all my friends :)",
-    year: "2026",
-  },
 ];
 
 export default function EducationClient() {
@@ -119,9 +115,36 @@ export default function EducationClient() {
           </p>
         </motion.div>
 
-        {/* UCT Card */}
+        {/* Current focus */}
         <motion.div
           custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="card p-7 mb-6 border-indigo-500/30 bg-indigo-500/[0.04]"
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+              <Compass size={18} className="text-indigo-400" />
+            </div>
+            <div>
+              <h2 className="text-[16px] font-semibold text-primary mb-2">
+                What I'm focused on right now
+              </h2>
+              <p className="text-[13px] text-secondary leading-relaxed">
+                My current focus is building strong foundations in computer science, 
+                statistics and mathematics while applying those ideas through real 
+                projects. Alongside my coursework at UCT, I continue improving SA 
+                Data Hub, learning more about databases and data management, and 
+                exploring how public data can be turned into useful tools and insights.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* UCT Card */}
+        <motion.div
+          custom={2}
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -162,7 +185,7 @@ export default function EducationClient() {
 
         {/* High school Card */}
         <motion.div
-          custom={2}
+          custom={3}
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -177,7 +200,7 @@ export default function EducationClient() {
                 Trafalgar Secondary School
               </h2>
               <p className="text-[13px] text-secondary mt-0.5">
-                National Senior Certificate (NSC)
+                National Senior Certificate (NSC) 
               </p>
               <p className="text-[12px] text-dim font-mono mt-1">
                 Graduated 2025
@@ -238,9 +261,13 @@ export default function EducationClient() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-lg font-semibold text-primary mb-6">
-            First-year modules
+          <h2 className="text-lg font-semibold text-primary mb-2">
+            What I'm studying right now
           </h2>
+          <p className="text-[13px] text-dim mb-6 max-w-2xl">
+            My first-year modules, and what each one means for what I'm
+            building today.
+          </p>
           <div className="grid sm:grid-cols-2 gap-4">
             {modules.map((mod, i) => (
               <motion.div

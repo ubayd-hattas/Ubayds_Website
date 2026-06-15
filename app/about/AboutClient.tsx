@@ -32,11 +32,18 @@ const values = [
   },
 ];
 
-const timeline = [
+interface TimelineItem {
+  year: string;
+  label: string;
+  detail: string;
+  href?: string;
+}
+
+const timeline: TimelineItem[] = [
   {
     year: "2008",
     label: "Born in Pretoria, South Africa",
-    detail: "23 February: The beginning.",
+    detail: "The beginning.",
   },
   {
     year: "2013",
@@ -71,6 +78,7 @@ const timeline = [
     label: "Launched SA Data Hub",
     detail:
       "Built and shipped sadatahub.tech — a public platform making South African statistics accessible to anyone, with interactive visualisations and transparent data sourcing.",
+    href: "https://sadatahub.tech",
   },
 ];
 
@@ -100,7 +108,7 @@ export default function AboutClient() {
             </span>
             <span className="flex items-center gap-1.5 text-[13px] text-secondary">
               <Calendar size={13} className="text-indigo-400" aria-hidden="true" />
-              Born 23 February 2008
+              Born in 2008
             </span>
             <span className="flex items-center gap-1.5 text-[13px] text-secondary">
               <GraduationCap size={13} className="text-indigo-400" aria-hidden="true" />
@@ -118,19 +126,35 @@ export default function AboutClient() {
           className="mb-16"
         >
           <div className="grid md:grid-cols-3 gap-3">
-            {[
+            {([
               { icon: Award, label: "Former Head Boy", detail: "Led the student body in matric" },
               { icon: Award, label: "NSC Top Achiever", detail: "Top 5 in school · Maths & Physics" },
-              { icon: GraduationCap, label: "Creator of SA Data Hub", detail: "Public South African data platform" },
-            ].map((item, i) => (
-              <div key={i} className="card p-4 flex items-start gap-3">
-                <item.icon size={15} className="text-indigo-400 mt-0.5 shrink-0" aria-hidden="true" />
-                <div>
-                  <p className="text-[13px] font-semibold text-primary">{item.label}</p>
-                  <p className="text-[12px] text-dim mt-0.5">{item.detail}</p>
+              { icon: GraduationCap, label: "Creator of SA Data Hub", detail: "Public South African data platform", href: "https://sadatahub.tech" },
+            ] as { icon: typeof Award; label: string; detail: string; href?: string }[]).map((item, i) =>
+              item.href ? (
+                <a
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card p-4 flex items-start gap-3 hover:border-indigo-500/30 transition-colors"
+                >
+                  <item.icon size={15} className="text-indigo-400 mt-0.5 shrink-0" aria-hidden="true" />
+                  <div>
+                    <p className="text-[13px] font-semibold text-primary">{item.label}</p>
+                    <p className="text-[12px] text-dim mt-0.5">{item.detail}</p>
+                  </div>
+                </a>
+              ) : (
+                <div key={i} className="card p-4 flex items-start gap-3">
+                  <item.icon size={15} className="text-indigo-400 mt-0.5 shrink-0" aria-hidden="true" />
+                  <div>
+                    <p className="text-[13px] font-semibold text-primary">{item.label}</p>
+                    <p className="text-[12px] text-dim mt-0.5">{item.detail}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </motion.div>
 
@@ -250,9 +274,20 @@ export default function AboutClient() {
                   <div className="relative flex items-start gap-4">
                     <div className="mt-[5px] w-2 h-2 rounded-full bg-indigo-500/60 shrink-0" aria-hidden="true" />
                     <div>
-                      <p className="text-[14px] font-medium text-primary">
-                        {item.label}
-                      </p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[14px] font-medium text-primary hover:text-indigo-400 transition-colors underline-offset-4 hover:underline"
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <p className="text-[14px] font-medium text-primary">
+                          {item.label}
+                        </p>
+                      )}
                       <p className="text-[13px] text-dim mt-0.5">
                         {item.detail}
                       </p>

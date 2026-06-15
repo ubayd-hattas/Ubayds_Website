@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/education", label: "Education" },
   { href: "/projects",  label: "Projects"  },
   { href: "/skills",    label: "Skills"    },
-  { href: "/now",       label: "Now"       },
   { href: "/blog",      label: "Blog"      },
   { href: "/contact",   label: "Contact"   },
 ];

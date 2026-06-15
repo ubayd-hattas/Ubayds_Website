@@ -1,16 +1,5 @@
 import { MetadataRoute } from "next";
-
-// Blog post slugs and their actual dates — update this when you add new posts
-const blogPosts = [
-  {
-    slug: "stats-sa-father",
-    lastModified: new Date("2026-05-29"),
-  },
-  {
-    slug: "sa-data-hub",
-    lastModified: new Date("2026-06-13"),
-  },
-];
+import { publishedPostsMeta } from "./blog/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ubayd.me";
@@ -66,9 +55,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  // Derived directly from posts.ts — no need to maintain a separate list.
+  // Adding a new post to posts.ts automatically includes it in the sitemap.
+  const blogRoutes: MetadataRoute.Sitemap = publishedPostsMeta.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.lastModified,
+    lastModified: new Date(post.dateISO),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
