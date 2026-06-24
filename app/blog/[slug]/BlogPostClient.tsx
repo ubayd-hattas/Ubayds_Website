@@ -503,7 +503,7 @@ const postMeta: Record<string, {
   },
   "ai-safety-hackathon": {
     title: "My First AI Safety Hackathon: From Idea to Research Prototype",
-    date: "23 Jun 2026",
+    date: "24 Jun 2026",
     tags: ["AI Safety", "Research", "Hackathon"],
     readingTime: 5,
     excerpt:

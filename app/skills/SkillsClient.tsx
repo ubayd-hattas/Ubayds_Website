@@ -56,6 +56,7 @@ const skillGroups: SkillGroup[] = [
       { name: "React", evidence: "Component-based development across my projects." },
       { name: "Tailwind CSS", evidence: "Used to design and maintain responsive user interfaces." },
       { name: "Framer Motion", evidence: "Drives the animations and page transitions on this site." },
+      { name: "Streamlit", evidence: "Built an interactive dashboard for the AfriGuard AI safety benchmark to explore model evaluation results across languages and harm categories." },
     ],
   },
   {
@@ -67,6 +68,10 @@ const skillGroups: SkillGroup[] = [
       { name: "Data Visualisation", evidence: "Building charts, dashboards and interactive tools that make data easier to understand." },
       { name: "Public Data Research", evidence: "Working with South African datasets from sources such as Stats SA and other public institutions." },
       { name: "Statistical Thinking", evidence: "Using data to identify patterns, evaluate information and make informed decisions." },
+      { name: "Pandas", evidence: "Used for data processing, transformation and analysis across the AfriGuard evaluation pipeline and other data projects." },
+      { name: "Evaluation Pipelines", evidence: "Built an automated pipeline to collect, judge and process over 1,100 model responses for the AfriGuard AI safety benchmark." },
+      { name: "Automated Data Processing", evidence: "Writing scripts to classify model behaviour, compute safety metrics and generate reproducible analytics without manual intervention." },
+      { name: "Research Methodology", evidence: "Designed and executed a multilingual AI safety benchmark — from prompt design and translation through to evaluation and analysis." },
     ],
   },
   {
@@ -78,6 +83,7 @@ const skillGroups: SkillGroup[] = [
       { name: "VS Code", evidence: "Primary development environment." },
       { name: "Command line", evidence: "Managing projects, workflows and development tasks." },
       { name: "Vercel", evidence: "Hosting and deployment for my web projects. "},
+      { name: "APIs", evidence: "Integrated and worked with multiple frontier model APIs to collect and evaluate responses for the AfriGuard benchmark." },
     ],
   },
   {

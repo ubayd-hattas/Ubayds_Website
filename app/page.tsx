@@ -334,7 +334,7 @@ export default function Home() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-4">
-              {publishedPostsMeta.slice(0, 2).map((post, i) => (
+              {publishedPostsMeta.slice(-2).map((post, i) => (
                 <motion.div
                   key={post.slug}
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
