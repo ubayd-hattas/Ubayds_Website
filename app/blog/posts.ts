@@ -39,4 +39,16 @@ export const publishedPostsMeta: BlogPost[] = [
     description:
       "The story of building SA Data Hub during my first semester at UCT — what triggered the idea, how I built it, what scalability challenges I hit, and where the platform is heading next.",
   },
+  {
+    slug: "ai-safety-hackathon",
+    title: "My First AI Safety Hackathon: From Idea to Research Prototype",
+    excerpt:
+      "My first hackathon took me from a solo-project mindset to building a multilingual AI safety benchmark with a team, in a single weekend. This is the story of AfriGuard, the bugs we hit, and what I learned about doing research with other people.",
+    tags: ["AI Safety", "Research", "Hackathon"],
+    date: "23 Jun 2026",
+    dateISO: "2026-06-23",
+    readingTime: 5,
+    description:
+      "The story of competing in the Global South AI Safety Hackathon hosted by Apart Research — building AfriGuard, a multilingual AI safety benchmark for South African languages, the evaluation pipeline I built, and what working in a research team taught me.",
+  },
 ];

@@ -59,6 +59,15 @@ const publishedPosts: PublishedPost[] = [
     date: "13 Jun 2026",
     readingTime: 5,
   },
+  {
+    id: "ai-safety-hackathon",
+    title: "My First AI Safety Hackathon: From Idea to Research Prototype",
+    excerpt:
+      "My first hackathon took me from a solo-project mindset to building a multilingual AI safety benchmark with a team, in a single weekend. This is the story of AfriGuard, the bugs we hit, and what I learned about doing research with other people.",
+    tags: ["AI Safety", "Research", "Hackathon"],
+    date: "23 Jun 2026",
+    readingTime: 5,
+  },
 ];
 
 const plannedPosts: PlannedPost[] = [

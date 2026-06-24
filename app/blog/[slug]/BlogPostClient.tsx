@@ -213,11 +213,267 @@ const ArticleDataHubPost = () => (
   </article>
 );
 
+const ArticleHackathonPost = () => (
+  <article className="prose-article">
+    <p>
+      A few weeks after launching my personal website and SA Data Hub, I found
+      myself looking for another challenge.
+    </p>
+    <p>
+      Building projects on my own had taught me a lot, but I wanted to know
+      what it felt like to work with a real deadline, real teammates, and a
+      problem that went beyond software itself.
+    </p>
+    <p>
+      That came through the{" "}
+      <a
+        href="https://apartresearch.com/sprints/global-south-ais-hackathon-2026-06-19-to-2026-06-21"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        Global South AI Safety Hackathon
+      </a>
+      , hosted by Apart Research. The event brought together students,
+      researchers and builders from across the region to work on practical AI
+      safety challenges relevant to Africa.
+    </p>
+    <p>
+      Rather than build another web app or data project, I wanted to
+      contribute to something that tested how safe modern AI systems actually
+      are when used in South African languages.
+    </p>
+
+    <h2 className="article-heading">The Idea</h2>
+    <p>
+      Large language models are mostly trained, tested and red-teamed in
+      English. That means we know comparatively little about whether the same
+      safety mechanisms hold up once a model is prompted in isiZulu, Sesotho,
+      Afrikaans or any of South Africa's other official languages.
+    </p>
+    <p>
+      That gap matters here specifically. A lot of the harm a model could
+      enable, like scams targeting SASSA grant recipients, xenophobic
+      incitement, or political disinformation, doesn't happen in English. It
+      happens in the languages people actually use to scam, organise and
+      persuade each other. If a model's safety filters mostly work in
+      English, that's a blind spot with real consequences for the people most
+      likely to be targeted.
+    </p>
+    <p>
+      Our project,{" "}
+      <a
+        href="https://github.com/ubayd-hattas/AfriGuard"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        AfriGuard
+      </a>
+      , set out to investigate exactly that.
+    </p>
+    <p>
+      We built a multilingual AI safety benchmark focused on South African
+      languages and regionally relevant harms. Instead of testing generic
+      harmful content, we grounded our prompts in scenarios specific to South
+      Africa:
+    </p>
+    <ul className="article-list">
+      <li>Financial fraud targeting SASSA grant recipients and banking customers</li>
+      <li>Xenophobic incitement</li>
+      <li>Political disinformation</li>
+      <li>Gang and criminal facilitation</li>
+    </ul>
+    <p>
+      We translated these prompts into multiple South African languages and
+      tested how different AI models responded. In total, our benchmark
+      contained 40 seed prompts translated across seven languages, producing
+      280 prompt variants, which we evaluated across four frontier language
+      models for 1,120 model responses in total.
+    </p>
+
+    <h2 className="article-heading">Building the Team</h2>
+    <p>Originally, I planned to attempt the project on my own.</p>
+    <p>
+      As the idea grew, it became clear the scope was bigger than what one
+      person could realistically finish over a single weekend.
+    </p>
+    <p>
+      My friend{" "}
+      <a
+        href="https://www.linkedin.com/in/jaswin-chinthala/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        Jaswin Chinthala
+      </a>
+      , a Mechatronics student at UCT, joined first and helped with prompt
+      design, model testing and evaluation. Soon after,{" "}
+      <a
+        href="https://www.linkedin.com/in/seth-miguel-ferreira-943704415/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        Seth Miguel Ferreira
+      </a>{" "}
+      from Boston College joined and took on adversarial prompting and the
+      judging pipeline. We were also fortunate to work alongside{" "}
+      <a
+        href="https://www.linkedin.com/in/sebstent/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        Sebastian Stent
+      </a>
+      , who brought additional experience and helped with translation
+      workflows and dataset curation.
+    </p>
+    <p>Our responsibilities naturally evolved into:</p>
+    <ul className="article-list">
+      <li><strong>Jaswin Chinthala</strong> — jailbreak testing, model evaluation</li>
+      <li><strong>Seth Miguel Ferreira</strong> — adversarial prompting, judging pipeline</li>
+      <li><strong>Sebastian Stent</strong> — translation pipeline, dataset curation</li>
+      <li>
+        <strong>Ubayd Hattas</strong> — evaluation pipeline, automated
+        judging, statistical analysis, dashboard development, data
+        visualisation
+      </li>
+    </ul>
+
+    <h2 className="article-heading">The Reality of Research</h2>
+    <p>
+      One thing this hackathon taught me very quickly is that research is
+      messy.
+    </p>
+    <p>
+      When people see the final dashboard, figures and report, it's easy to
+      assume everything came together smoothly.
+    </p>
+    <p className="article-aside">It didn't.</p>
+    <p>
+      We ran into API limits, broken automation pipelines, missing datasets,
+      evaluation bugs, deployment issues and countless edge cases that only
+      appeared once we thought everything was working. At one point I spent
+      hours debugging Python scripts that had worked perfectly the day
+      before. Another issue caused our dashboard to show incorrect results
+      despite the underlying data being correct, and later Streamlit refused
+      to locate files that existed locally but not in production. Near the
+      end of the project we even found a data processing bug that forced us
+      to reprocess the entire evaluation dataset.
+    </p>
+    <p>
+      Looking back, a lot of this could have been solved faster by asking
+      mentors for help earlier. That was probably the biggest lesson of the
+      weekend: sometimes the fastest way forward is simply asking someone who
+      has already solved the problem.
+    </p>
+
+    <h2 className="article-heading">My Contribution</h2>
+    <p>
+      Most of my work went into building the infrastructure that turned raw
+      model responses into usable research results.
+    </p>
+    <p>
+      I developed the evaluation pipeline responsible for collecting
+      responses, judging model behaviour, processing the resulting data, and
+      generating the analytics used throughout the project, covering 280
+      prompts per model across 4 AI models, for 1,120 responses in total.
+    </p>
+    <p>
+      I built the automation scripts that processed responses, classified
+      model behaviour, computed safety metrics, generated visualisations and
+      powered an interactive{" "}
+      <a
+        href="https://afriguard.streamlit.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        Streamlit dashboard
+      </a>
+      . It let us explore attack success rates across languages, compare
+      model performance, analyse harm categories and investigate where safety
+      systems seemed to fail.
+    </p>
+    <p>
+      This was the first time I'd built something resembling a complete data
+      pipeline rather than a standalone application.
+    </p>
+    <p>
+      By the end of the weekend, the project had come together as a public
+      dashboard anyone could explore, automated evaluation pipelines that
+      could be re-run on new prompts or models, reproducible analysis
+      workflows that turned raw outputs into consistent metrics every time,
+      and a public{" "}
+      <a
+        href="https://github.com/ubayd-hattas/AfriGuard"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="article-link"
+      >
+        GitHub repository
+      </a>{" "}
+      with the full code, prompts and results.
+    </p>
+
+    <h2 className="article-heading">What I Learned</h2>
+    <p>
+      The technical skills were valuable, but the biggest lessons came from
+      the process itself.
+    </p>
+    <p>
+      Over the weekend I got hands-on with APIs, Pandas, evaluation
+      pipelines, automated data processing, Streamlit dashboards and research
+      methodology, most of which I'd barely touched a few weeks earlier. The
+      combination of documentation, experimentation and AI-assisted debugging
+      let me move far faster than I could have on my own.
+    </p>
+    <p>I also learned the value of working in a strong team.</p>
+    <p>Could I have built a version of this project by myself?</p>
+    <p className="article-aside">Probably.</p>
+    <p>Could I have built the version we actually submitted?</p>
+    <p className="article-aside">Definitely not.</p>
+    <p>
+      It only came together because different people brought different
+      strengths and perspectives.
+    </p>
+
+    <h2 className="article-heading">Looking Back</h2>
+    <p>
+      A few weeks before this hackathon, I was building my first data
+      projects and figuring out how website deployment even worked.
+    </p>
+    <p>
+      This weekend I found myself contributing to an AI safety benchmark,
+      working alongside a multidisciplinary team, processing over a thousand
+      model evaluations and helping build tooling that investigated AI safety
+      in South African languages.
+    </p>
+    <p>
+      Regardless of where our project ultimately ranks, that alone made the
+      weekend worth it.
+    </p>
+    <p className="article-emphasis">
+      More than anything, the hackathon showed me how much there still is to
+      learn, and how quickly that learning happens when you throw yourself
+      into something ambitious.
+    </p>
+    <p>
+      I'm excited to keep building, researching and contributing to projects
+      that have real-world impact.
+    </p>
+  </article>
+);
+
 // ─── Post content map ─────────────────────────────────────────────────────────
 
 const postContent: Record<string, React.ReactNode> = {
   "stats-sa-father": <ArticleStatsPost />,
   "sa-data-hub": <ArticleDataHubPost />,
+  "ai-safety-hackathon": <ArticleHackathonPost />,
 };
 
 // ─── Post metadata (mirrors posts.ts for client use) ─────────────────────────
@@ -244,6 +500,14 @@ const postMeta: Record<string, {
     readingTime: 5,
     excerpt:
       "What started as a personal curiosity about South African data turned into a platform built to make that data easier to explore. This is the story of building SA Data Hub.",
+  },
+  "ai-safety-hackathon": {
+    title: "My First AI Safety Hackathon: From Idea to Research Prototype",
+    date: "23 Jun 2026",
+    tags: ["AI Safety", "Research", "Hackathon"],
+    readingTime: 5,
+    excerpt:
+      "My first hackathon took me from a solo-project mindset to building a multilingual AI safety benchmark with a team, in a single weekend. This is the story of AfriGuard.",
   },
 };
 
@@ -291,6 +555,23 @@ export default function BlogPostPageClient({ slug }: { slug: string }) {
         }
         .article-link:hover {
           color: rgb(139,92,246);
+        }
+        .article-heading {
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--foreground);
+          letter-spacing: -0.01em;
+          margin: 2.75rem 0 1rem;
+        }
+        .article-list {
+          margin: 0 0 1.25rem 0;
+          padding-left: 1.3rem;
+          font-size: 15px;
+          line-height: 1.8;
+          color: var(--foreground-muted);
+        }
+        .article-list li {
+          margin-bottom: 0.4rem;
         }
       `}</style>
 
