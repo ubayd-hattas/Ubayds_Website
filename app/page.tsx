@@ -239,7 +239,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SA Data Hub highlight */}
+        {/* AfriGuard highlight */}
         <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
           <div className="max-w-5xl mx-auto px-6">
             <motion.div
@@ -247,6 +247,57 @@ export default function Home() {
               viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="card p-6 md:p-8"
               style={{ borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.04)" }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="max-w-xl">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl" aria-hidden="true">🛡️</span>
+                    <span className="text-[11px] uppercase tracking-widest font-medium"
+                      style={{ color: "var(--accent)" }}>Featured project</span>
+                  </div>
+                  <h2 className="text-[18px] font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+                    AfriGuard
+                  </h2>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--foreground-muted)" }}>
+                    A multilingual AI safety benchmark built at the Global South AI Safety Hackathon.
+                    We red-teamed four frontier LLMs across seven South African languages and found
+                    that safety guardrails catastrophically degrade outside of English — with a mean
+                    attack success rate of 50.1% versus 24.4% in English.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 shrink-0">
+                  <a
+                    href="https://github.com/ubayd-hattas/AfriGuard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                    aria-label="View AfriGuard on GitHub"
+                  >
+                    View on GitHub <ArrowRight size={14} aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://afriguard.streamlit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary text-center"
+                    aria-label="Visit AfriGuard live dashboard"
+                  >
+                    Live dashboard ↗
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SA Data Hub highlight */}
+        <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
+          <div className="max-w-5xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="card p-6 md:p-8"
+              style={{ borderColor: "rgba(16,185,129,0.25)", background: "rgba(16,185,129,0.04)" }}
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="max-w-xl">

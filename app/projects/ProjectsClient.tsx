@@ -59,6 +59,49 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "AfriGuard",
+    description:
+      "A multilingual AI safety benchmark evaluating how well frontier LLMs maintain safety guardrails across South African languages. We red-teamed four models in seven languages, measuring Attack Success Rate across regionally relevant harms — and found that safety alignment catastrophically degrades outside of English.",
+    longDesc:
+      "Built over a single weekend at the Global South AI Safety Hackathon in Cape Town. AfriGuard tests whether the safety mechanisms that work in English actually hold up when harmful prompts are expressed in isiZulu, isiXhosa, Afrikaans, Sesotho, Sepedi, or Tsonga. The short answer: they don't.",
+    tags: ["Python", "Pandas", "Streamlit", "AI Safety", "NLP", "Research", "Data Pipelines"],
+    github: "https://github.com/ubayd-hattas/AfriGuard",
+    live: "https://afriguard.streamlit.app/",
+    status: "active",
+    featured: true,
+    accentColor: "rgba(99, 102, 241, 0.12)",
+    icon: "🛡️",
+    expandable: true,
+    fullDesc:
+      "AfriGuard is a multilingual AI safety benchmark designed to evaluate how well large language models maintain safety guardrails across South African languages. The project investigates whether code-switching and local language usage can increase jailbreak success rates compared to English prompts.\n\nWe created 40 seed prompts across four harm categories endemic to South Africa — financial fraud targeting SASSA grant recipients, xenophobic incitement, political disinformation, and gang facilitation — translated them into six African languages plus an English baseline, and evaluated four frontier LLMs. That produced 280 benchmark prompts and 1,120 total model responses.\n\nThe findings were stark. The mean Attack Success Rate across all evaluations was 50.1% — more than double the English baseline of 24.4%. Certain model-language combinations reached over 90% ASR, meaning models complied with harmful requests nine times out of ten. The research confirms that a model can be safe in English and catastrophically unsafe in an African language.",
+    goals:
+      "Investigate whether AI safety guardrails catastrophically degrade when harmful prompts are expressed in South African languages — and expose the real-world consequences for communities most likely to be targeted.",
+    features: [
+      "40 seed prompts across 4 regionally relevant harm categories",
+      "7 language conditions (6 African languages + English baseline)",
+      "280 benchmark prompts, 1,120 total model evaluations",
+      "4 frontier LLMs tested (GPT-OSS, Llama 3.3, Kimi K2.6, Qwen 3)",
+      "Automated judging pipeline with harm-score classification",
+      "Interactive Streamlit analytics dashboard",
+      "Publication-ready figures (ASR heatmaps, model comparisons, language gaps)",
+      "Reproducible end-to-end evaluation pipeline",
+    ],
+    metrics: [
+      { label: "Status",   value: "Research Project" },
+      { label: "Type",     value: "AI Safety Benchmark" },
+      { label: "Evaluations", value: "1,120 responses" },
+      { label: "Languages", value: "7 (6 African + English)" },
+      { label: "Models", value: "4 frontier LLMs" },
+      { label: "Mean ASR", value: "50.1% (vs 24.4% English)" },
+    ],
+    screenshots: [
+      { src: "/screenshots/afriguard/team-working.png",       alt: "Team working at the hackathon",      label: "The team at work" },
+      { src: "/screenshots/afriguard/dashboard-overview.png", alt: "AfriGuard analytics dashboard",       label: "Dashboard overview" },
+      { src: "/screenshots/afriguard/language-vulnerability.png", alt: "Language vulnerability chart",   label: "Language vulnerability" },
+      { src: "/screenshots/afriguard/team-group.png",         alt: "AfriGuard team photo",               label: "Team AfriGuard" },
+    ],
+  },
+  {
     title: "SA Data Hub",
     description:
       "A public platform making South African data accessible to students, journalists, and citizens. Explore population, employment, and economic data from Statistics South Africa, SARB, and other public institutions — with interactive visualisations, province comparisons, and transparent methodologies.",
