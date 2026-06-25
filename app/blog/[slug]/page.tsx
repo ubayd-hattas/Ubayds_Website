@@ -81,7 +81,7 @@ export default async function BlogPostPage({
       url: "https://ubayd.me",
     },
     datePublished: post.dateISO,
-    dateModified: post.dateISO,
+    dateModified: post.lastUpdated || post.dateISO,
     url: `https://ubayd.me/blog/${post.slug}`,
     image: "https://ubayd.me/og-image.png",
     publisher: {

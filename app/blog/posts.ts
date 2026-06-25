@@ -1,6 +1,11 @@
-// Blog post data — structured for both the listing page and individual post pages.
-// Adding a new post: add an entry here, add the content component in BlogClient.tsx,
-// and add the slug to app/sitemap.ts.
+// Blog post data — the single source of truth for all blog posts.
+// This file drives: the blog index (BlogClient.tsx), individual post pages
+// (BlogPostClient.tsx + [slug]/page.tsx), and the sitemap (sitemap.ts).
+//
+// Adding a new post:
+//   1. Add an entry to publishedPostsMeta below.
+//   2. Add the content component in BlogPostClient.tsx's postContent map.
+//   3. That's it — the sitemap, blog index, metadata, and JSON-LD all update automatically.
 
 export interface BlogPost {
   slug: string;

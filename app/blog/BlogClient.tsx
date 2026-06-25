@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PenLine, Clock, Calendar, Tag } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { publishedPostsMeta, BlogPost } from "./posts";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -19,16 +20,6 @@ const fadeUp = {
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 
-interface PublishedPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  tags: string[];
-  date: string;
-  lastUpdated?: string;
-  readingTime: number; // minutes
-}
-
 interface PlannedPost {
   title: string;
   excerpt: string;
@@ -40,35 +31,10 @@ interface PlannedPost {
 // Data
 // ─────────────────────────────────────────────────────────────────────────────
 
-const publishedPosts: PublishedPost[] = [
-  {
-    id: "stats-sa-father",
-    title: "What My Father's Work at Stats SA Taught Me About Data",
-    excerpt:
-      "Growing up around national data collection made statistics feel interesting long before I encountered it academically. This is about effort, compounding and what it means to follow someone's path.",
-    tags: ["Personal", "Data", "Reflection"],
-    date: "29 May 2026",
-    readingTime: 4,
-  },
-  {
-    id: "sa-data-hub",
-    title: "How I Built a South African Data Hub in My First Semester at UCT",
-    excerpt:
-      "What started as a personal curiosity about South African data turned into a platform built to make that data easier to explore. This is the story of building SA Data Hub, the lessons it taught me and where it is heading next.",
-    tags: ["Projects", "Data", "UCT"],
-    date: "13 Jun 2026",
-    readingTime: 5,
-  },
-  {
-    id: "ai-safety-hackathon",
-    title: "My First AI Safety Hackathon: From Idea to Research Prototype",
-    excerpt:
-      "My first hackathon took me from a solo-project mindset to building a multilingual AI safety benchmark with a team, in a single weekend. This is the story of AfriGuard, the bugs we hit, and what I learned about doing research with other people.",
-    tags: ["AI Safety", "Research", "Hackathon"],
-    date: "24 Jun 2026",
-    readingTime: 5,
-  },
-];
+// Published posts are sourced directly from posts.ts — the single source of truth.
+// This guarantees the blog index, sitemap, and individual post pages all stay
+// in sync. Adding a post to posts.ts automatically makes it appear here.
+const publishedPosts = publishedPostsMeta;
 
 const plannedPosts: PlannedPost[] = [
   {
@@ -127,7 +93,7 @@ function PublishedCard({
   post,
   index,
 }: {
-  post: PublishedPost;
+  post: BlogPost;
   index: number;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -141,7 +107,7 @@ function PublishedCard({
       viewport={{ once: true }}
     >
       <Link
-        href={`/blog/${post.id}`}
+        href={`/blog/${post.slug}`}
         className="published-card"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -373,7 +339,7 @@ export default function BlogClient() {
           <div className="space-y-4 mb-4">
             {publishedPosts.map((post, i) => (
               <PublishedCard
-                key={post.id}
+                key={post.slug}
                 post={post}
                 index={i}
               />

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, BookOpen, Tag } from "lucide-react";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
+import { publishedPostsMeta } from "../posts";
 
 // ─── Article content components (same content as BlogClient.tsx) ──────────────
 
@@ -476,40 +477,11 @@ const postContent: Record<string, React.ReactNode> = {
   "ai-safety-hackathon": <ArticleHackathonPost />,
 };
 
-// ─── Post metadata (mirrors posts.ts for client use) ─────────────────────────
+// ─── Post metadata (sourced from posts.ts — single source of truth) ──────────
 
-const postMeta: Record<string, {
-  title: string;
-  date: string;
-  tags: string[];
-  readingTime: number;
-  excerpt: string;
-}> = {
-  "stats-sa-father": {
-    title: "What My Father's Work at Stats SA Taught Me About Data",
-    date: "29 May 2026",
-    tags: ["Personal", "Data", "Reflection"],
-    readingTime: 4,
-    excerpt:
-      "Growing up around national data collection made statistics feel interesting long before I encountered it academically. This is about effort, compounding and what it means to follow someone's path.",
-  },
-  "sa-data-hub": {
-    title: "How I Built a South African Data Hub in My First Semester at UCT",
-    date: "13 Jun 2026",
-    tags: ["Projects", "Data", "UCT"],
-    readingTime: 5,
-    excerpt:
-      "What started as a personal curiosity about South African data turned into a platform built to make that data easier to explore. This is the story of building SA Data Hub.",
-  },
-  "ai-safety-hackathon": {
-    title: "My First AI Safety Hackathon: From Idea to Research Prototype",
-    date: "24 Jun 2026",
-    tags: ["AI Safety", "Research", "Hackathon"],
-    readingTime: 5,
-    excerpt:
-      "My first hackathon took me from a solo-project mindset to building a multilingual AI safety benchmark with a team, in a single weekend. This is the story of AfriGuard.",
-  },
-};
+const postMeta = Object.fromEntries(
+  publishedPostsMeta.map((p) => [p.slug, p])
+);
 
 // ─── Component ────────────────────────────────────────────────────────────────
 

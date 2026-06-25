@@ -36,12 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/now`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
       url: `${baseUrl}/blog`,
       lastModified: new Date("2026-06-13"),
       changeFrequency: "weekly",
@@ -57,9 +51,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Derived directly from posts.ts — no need to maintain a separate list.
   // Adding a new post to posts.ts automatically includes it in the sitemap.
+  // lastModified uses lastUpdated if available, otherwise falls back to dateISO.
   const blogRoutes: MetadataRoute.Sitemap = publishedPostsMeta.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.dateISO),
+    lastModified: new Date(post.lastUpdated || post.dateISO),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
