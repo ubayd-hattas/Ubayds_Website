@@ -6,6 +6,7 @@ import { ArrowLeft, Calendar, BookOpen, Tag } from "lucide-react";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
 import { publishedPostsMeta } from "../posts";
+import { projects } from "@/app/projects/projects";
 
 // ─── Article content components (same content as BlogClient.tsx) ──────────────
 
@@ -107,6 +108,13 @@ const ArticleStatsPost = () => (
       eventually making it to UCT, then maybe a lot more is possible than we
       initially think.
     </p>
+    <p>
+      That same curiosity about data eventually became{" "}
+      <Link href="/projects/sa-data-hub" className="article-link">
+        SA Data Hub
+      </Link>
+      — a platform I built to make South African statistics easier to explore.
+    </p>
   </article>
 );
 
@@ -162,7 +170,11 @@ const ArticleDataHubPost = () => (
       this idea. I wanted to create a platform that made data easier to access,
       understand and explore.
     </p>
-    <p>On 31 May 2026, I launched SA Data Hub.</p>
+    <p>On 31 May 2026, I launched{" "}
+      <Link href="/projects/sa-data-hub" className="article-link">
+        SA Data Hub
+      </Link>.
+    </p>
     <p>The goal was simple: make South African data easier to understand.</p>
     <p>
       Over the following weeks, I spent a lot of time collecting datasets,
@@ -180,7 +192,11 @@ const ArticleDataHubPost = () => (
 
     <p>
       At the time of writing this, I am currently on my winter break. Alongside
-      attending my first hackathon, the Global South AI Safety Hackathon in Cape
+      attending my first hackathon, the{" "}
+      <Link href="/blog/ai-safety-hackathon" className="article-link">
+        Global South AI Safety Hackathon
+      </Link>{" "}
+      in Cape
       Town and participating in various events, I have been learning PostgreSQL
       and exploring better ways to manage data through databases rather than
       static files.
@@ -193,7 +209,11 @@ const ArticleDataHubPost = () => (
     </p>
     <p>For now, I am not rushing into new projects.</p>
     <p>
-      I want to continue improving SA Data Hub because I believe some projects
+      I want to continue improving{" "}
+      <Link href="/projects/sa-data-hub" className="article-link">
+        SA Data Hub
+      </Link>{" "}
+      because I believe some projects
       become more valuable the longer you stick with them. Every new dataset,
       feature and improvement adds to what already exists. The project compounds
       over time.
@@ -217,7 +237,10 @@ const ArticleDataHubPost = () => (
 const ArticleHackathonPost = () => (
   <article className="prose-article">
     <p>
-      A few weeks after launching my personal website and SA Data Hub, I found
+      A few weeks after launching my personal website and{" "}
+      <Link href="/projects/sa-data-hub" className="article-link">
+        SA Data Hub
+      </Link>, I found
       myself looking for another challenge.
     </p>
     <p>
@@ -263,14 +286,9 @@ const ArticleHackathonPost = () => (
     </p>
     <p>
       Our project,{" "}
-      <a
-        href="https://github.com/ubayd-hattas/AfriGuard"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="article-link"
-      >
+      <Link href="/projects/afriguard" className="article-link">
         AfriGuard
-      </a>
+      </Link>
       , set out to investigate exactly that.
     </p>
     <p>
@@ -448,8 +466,11 @@ const ArticleHackathonPost = () => (
       projects and figuring out how website deployment even worked.
     </p>
     <p>
-      This weekend I found myself contributing to an AI safety benchmark,
-      working alongside a multidisciplinary team, processing over a thousand
+      This weekend I found myself contributing to an{" "}
+      <Link href="/projects/afriguard" className="article-link">
+        AI safety benchmark
+      </Link>
+      , working alongside a multidisciplinary team, processing over a thousand
       model evaluations and helping build tooling that investigated AI safety
       in South African languages.
     </p>
@@ -632,6 +653,44 @@ export default function BlogPostPageClient({ slug }: { slug: string }) {
           >
             {content}
           </motion.div>
+
+          {/* Related projects */}
+          {meta.relatedProjectSlugs && meta.relatedProjectSlugs.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.5 }}
+              className="mt-12 p-5 rounded-xl"
+              style={{
+                border: "1px solid var(--border)",
+                background: "var(--surface)",
+              }}
+            >
+              <p
+                className="text-[11px] font-semibold uppercase tracking-wider mb-3"
+                style={{ color: "var(--foreground-dim)" }}
+              >
+                Related project{meta.relatedProjectSlugs.length > 1 ? "s" : ""}
+              </p>
+              <ul className="space-y-2">
+                {meta.relatedProjectSlugs.map((slug) => {
+                  const project = projects.find((p) => p.slug === slug);
+                  if (!project) return null;
+                  return (
+                    <li key={slug}>
+                      <Link
+                        href={`/projects/${slug}`}
+                        className="text-[14px] font-medium transition-colors hover:text-indigo-400"
+                        style={{ color: "var(--foreground-muted)" }}
+                      >
+                        {project.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </motion.div>
+          )}
 
           {/* Back to blog */}
           <motion.div

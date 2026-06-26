@@ -17,6 +17,7 @@ export interface BlogPost {
   lastUpdated?: string;
   readingTime: number; // minutes
   description: string; // unique meta description per post
+  relatedProjectSlugs?: string[]; // cross-links to /projects/[slug]
 }
 
 export const publishedPostsMeta: BlogPost[] = [
@@ -31,6 +32,7 @@ export const publishedPostsMeta: BlogPost[] = [
     readingTime: 4,
     description:
       "How growing up with a Stats SA director for a father shaped my relationship with data, statistics, and the discipline it takes to build something meaningful. A personal reflection on effort and compounding.",
+    relatedProjectSlugs: ["sa-data-hub"],
   },
   {
     slug: "sa-data-hub",
@@ -43,6 +45,7 @@ export const publishedPostsMeta: BlogPost[] = [
     readingTime: 5,
     description:
       "The story of building SA Data Hub during my first semester at UCT — what triggered the idea, how I built it, what scalability challenges I hit, and where the platform is heading next.",
+    relatedProjectSlugs: ["sa-data-hub"],
   },
   {
     slug: "ai-safety-hackathon",
@@ -55,5 +58,6 @@ export const publishedPostsMeta: BlogPost[] = [
     readingTime: 5,
     description:
       "The story of competing in the Global South AI Safety Hackathon hosted by Apart Research — building AfriGuard, a multilingual AI safety benchmark for South African languages, the evaluation pipeline I built, and what working in a research team taught me.",
+    relatedProjectSlugs: ["afriguard"],
   },
 ];
