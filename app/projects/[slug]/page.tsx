@@ -77,22 +77,28 @@ export default async function ProjectPage({
     notFound();
   }
 
-  // JSON-LD structured data — SoftwareApplication schema
+  // JSON-LD structured data — SoftwareApplication or CreativeWork schema
+  const schemaType = project.live ? "SoftwareApplication" : "CreativeWork";
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": project.live ? "SoftwareApplication" : "CreativeWork",
+    "@type": schemaType,
+    "@id": `https://ubayd.me/projects/${project.slug}#project`,
     name: project.title,
     description: project.seo.description,
     url: project.live ?? `https://ubayd.me/projects/${project.slug}`,
-    applicationCategory: "WebApplication",
-    operatingSystem: "Web",
+    // applicationCategory and operatingSystem are SoftwareApplication-only fields
+    ...(schemaType === "SoftwareApplication"
+      ? { applicationCategory: "WebApplication", operatingSystem: "Web" }
+      : {}),
     author: {
       "@type": "Person",
+      "@id": "https://ubayd.me/#person",
       name: "Ubayd Hattas",
       url: "https://ubayd.me",
     },
     creator: {
       "@type": "Person",
+      "@id": "https://ubayd.me/#person",
       name: "Ubayd Hattas",
       url: "https://ubayd.me",
     },
@@ -115,6 +121,10 @@ export default async function ProjectPage({
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://ubayd.me/projects/${project.slug}`,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": "https://ubayd.me/#website",
     },
   };
 

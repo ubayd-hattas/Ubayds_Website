@@ -34,7 +34,7 @@ const contactLinks = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/ubayd-hattas",
-    href: "https://www.linkedin.com/in/ubayd-hattas-0608a2349/",
+    href: "https://www.linkedin.com/in/ubayd-hattas/",
     desc: "Professional background, education, and connections.",
   },
   {

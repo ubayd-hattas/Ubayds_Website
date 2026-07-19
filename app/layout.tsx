@@ -41,6 +41,14 @@ export const metadata: Metadata = {
     "AI",
     "Machine Learning",
     "BSc student",
+    "Afriguard",
+    "Global South AI Safety Hackathon",
+    "AI safety benchmark",
+    "AI safety research",
+    "AI safety",
+    "AI safety guardrails",
+    "AI safety guardrails degradation research",
+    "Dr Mahier Hattas",
   ],
   authors: [{ name: "Ubayd Hattas", url: "https://ubayd.me" }],
   creator: "Ubayd Hattas",
@@ -90,17 +98,19 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://ubayd.me/#person",
   name: "Ubayd Hattas",
   url: "https://ubayd.me",
   image: "https://ubayd.me/profile.jpg",
   sameAs: [
     "https://github.com/ubayd-hattas",
-    "https://www.linkedin.com/in/ubayd-hattas-0608a2349/",
+    "https://www.linkedin.com/in/ubayd-hattas/",
   ],
   jobTitle: "BSc Student — Computer Science, Statistics & Data Science",
   worksFor: {
     "@type": "Organization",
     name: "University of Cape Town",
+    url: "https://www.uct.ac.za",
   },
   birthDate: "2008-02-23",
   birthPlace: { "@type": "Place", name: "Pretoria, South Africa" },
@@ -116,25 +126,24 @@ const jsonLd = {
     "Machine Learning", "Artificial Intelligence", "Mathematics", "Python", "R",
   ],
 };
+// WebSite schema — omits potentialAction/SearchAction because the blog search
+// is client-side only and does not respond to ?q= server-side. Declaring a
+// SearchAction for a non-functional endpoint generates spurious Search Console
+// warnings and violates Google's Sitelinks Searchbox guidelines.
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://ubayd.me/#website",
   name: "Ubayd Hattas",
   url: "https://ubayd.me",
+  inLanguage: "en-ZA",
   description: "Personal website of Ubayd Hattas — UCT BSc student in Computer Science, Statistics & Data Science. Creator of SA Data Hub.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://ubayd.me/blog?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
+  author: { "@id": "https://ubayd.me/#person" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-ZA" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

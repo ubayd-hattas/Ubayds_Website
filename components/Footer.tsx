@@ -42,7 +42,7 @@ export default function Footer() {
               <Github size={17} aria-hidden="true" />
             </a>
             <a
-              href="https://www.linkedin.com/in/ubayd-hattas-0608a2349/"
+              href="https://www.linkedin.com/in/ubayd-hattas/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ubayd Hattas on LinkedIn"
@@ -59,14 +59,7 @@ export default function Footer() {
             >
               <Mail size={17} aria-hidden="true" />
             </a>
-            <Link
-              href="/now"
-              className="text-[12px] font-medium transition-opacity hover:opacity-80"
-              style={{ color: "var(--foreground-dim)" }}
-              aria-label="What Ubayd is doing now"
-            >
-              /now
-            </Link>
+
           </div>
         </div>
       </div>
