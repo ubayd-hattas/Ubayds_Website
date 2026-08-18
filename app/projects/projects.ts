@@ -74,6 +74,54 @@ export interface Project {
 // ─── Project data ─────────────────────────────────────────────────────────────
 
 export const projects: Project[] = [
+  // ── Does AI Actually Knows Itself? (Digital Minds Hackathon) ─────────
+  {
+    slug: "digital-minds-hackathon",
+    title: "Does AI Actually Knows Itself?",
+    description:
+      "A capability-controlled test of whether LLM self-prediction reflects privileged self-access — or is just stylometry in disguise. Asked which of two replies it would produce, Hermes-3 discriminated its own output above chance. A one-feature 'pick the longer reply' rule beat it anyway.",
+    longDesc:
+      "Built over 48 hours with Apart Research's Digital Minds Research Sprint (Track 3: Introspection & Self-Report Reliability). Model-welfare work runs on self-report, so the real question isn't whether a model can predict its own behaviour — it's whether that prediction beats a cheap outside observer reading the same text. Across 9,269 trials, ours mostly didn't.",
+    fullDesc:
+      "Preference elicitation, distress signals, and most practical model-welfare methodology run through AI self-report. But if a model's report about itself carries no epistemic advantage over what a comparably capable outsider could infer from the same text, those methods are measuring something other than what they claim. We adopted Song, Lederman, Hu & Mahowald's (2025) operational criterion: a process only counts as introspective if it beats an equal-or-lower-cost process available to a third party.\n\nWe tested this with two models sharing one pretrained base — Llama-3.1-70B and Hermes-3-70B — plus Mistral-Small-3.2-24B as a capability control, across a hidden persona property and a self-recognition/self-prediction probe. A capability-controlled crossed 2×2 design (four stimulus constructions on one shared 200-prompt pool, 24 cells, 9,269 trials) showed no positive raw self-advantage on the target contrast once predictor capability was controlled for.\n\nThe sharpest result came from the self-prediction probe: asked which of two replies it would produce, Hermes-3 discriminated its own output from its sibling's above chance (balanced accuracy 0.719, hit − false alarm +0.437) — genuine signal, not a position artifact. But a zero-cost, one-feature 'pick the longer reply' rule scored 0.808 on exactly those pairs, beating Hermes outright (McNemar p = 0.0018), and a 21-feature supervised stylometric classifier reached 83.1% author identification under a separate procedure. Length didn't explain everything, though — where the length cue pointed away from Hermes's own reply, it still discriminated at +0.381, a model-specific residual with no confirmed mechanism.\n\nWe also built and released two reusable diagnostic tools: a surface-leakage gate that checks whether a trivial stylometric classifier can recover a hidden property before a main experiment is paid for, and a response-bias check that catches predictors answering by position rather than content — a failure mode that silently produced clean-looking ~50% nulls in two of our own self-recognition framings before we caught it.",
+    tags: ["Python", "LLM Evaluation", "AI Safety", "Introspection", "Statistics", "Research", "OpenRouter API"],
+    github: "https://github.com/UbaJaz/Digital_Minds_Research",
+    live: null,
+    status: "active",
+    featured: true,
+    expandable: true,
+    accentColor: "rgba(236, 72, 153, 0.10)",
+    icon: "🪞",
+    bannerImage: "/pics/Digital_Minds_Hackathon.png",
+    goals:
+      "Test whether above-chance self-prediction in LLMs reflects privileged self-access, as opposed to simply being explainable by a cheap outside observer reading the same text — and release reusable tools for other introspection researchers to run the same check.",
+    features: [
+      "Capability-controlled crossed 2×2 design across 4 stimulus constructions",
+      "200-prompt shared pool, 24 cells, 9,269 scored trials, zero malformed",
+      "3 models tested: Llama-3.1-70B, Hermes-3-70B (shared base), Mistral-Small-3.2-24B (capability control)",
+      "21-feature grouped cross-validated surface-baseline classifier (83.1% author ID)",
+      "Self-prediction probe: balanced accuracy 0.719, discrimination +0.437 for Hermes-3",
+      "Length-only comparator (0.808) statistically beats self-prediction (McNemar p = 0.0018)",
+      "Released surface-leakage gate + response-bias check (numpy-only, dependency-free)",
+      "Append-only logged API calls with cost, token counts, and prompt hashes for full reproducibility",
+    ],
+    metrics: [
+      { label: "Status",           value: "Hackathon Submission"        },
+      { label: "Type",             value: "AI Introspection Research"   },
+      { label: "Trials",           value: "9,269 scored"                },
+      { label: "Design",           value: "Crossed 2×2, 24 cells"       },
+      { label: "Self-Prediction",  value: "Bal. acc. 0.719 (Hermes-3)" },
+      { label: "Beaten By",        value: "Length-only rule (0.808)"   },
+    ],
+    dateAdded: "2026-08-16",
+    seo: {
+      title: "Beaten by a Cheap Surface Classifier — LLM Self-Prediction vs Privileged Self-Access",
+      description:
+        "A capability-controlled test of LLM introspection: across 9,269 trials, Hermes-3's self-prediction (0.719 balanced accuracy) was beaten by a one-feature length rule (0.808). Digital Minds Research Sprint, Apart Research.",
+      ogImage: "/pics/Digital_Minds_Hackathon.png",
+    },
+  },
+
   // ── AfriGuard ──────────────────────────────────────────────────────────────
   {
     slug: "afriguard",
