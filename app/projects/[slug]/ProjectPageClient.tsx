@@ -21,10 +21,11 @@ import type { Project, ProjectScreenshot } from "../projects";
 
 // ─── Status config ────────────────────────────────────────────────────────────
 
-const statusConfig = {
-  active:   { label: "Active",   color: "text-green-400", bg: "bg-green-500/10 border-green-500/20"   },
-  building: { label: "Building", color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20"   },
-  planned:  { label: "Planned",  color: "text-dim",       bg: "bg-[var(--surface)] border-[var(--border)]" },
+const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
+  active:    { label: "Active",    color: "text-green-400", bg: "bg-green-500/10 border-green-500/20"      },
+  completed: { label: "Completed", color: "text-sky-400",   bg: "bg-sky-500/10 border-sky-500/20"          },
+  building:  { label: "Building",  color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20"      },
+  planned:   { label: "Planned",   color: "text-dim",       bg: "bg-[var(--surface)] border-[var(--border)]" },
 };
 
 // ─── Screenshot Gallery ───────────────────────────────────────────────────────

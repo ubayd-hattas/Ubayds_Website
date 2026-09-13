@@ -4,35 +4,38 @@ import { sitemapProjects } from "./projects/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ubayd.me";
+  // Site-wide content refresh (portfolio repositioning + new project).
+  // Static dates are intentional — not regenerated on every build.
+  const siteRefresh = new Date("2026-09-13");
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date("2026-06-14"),
+      lastModified: siteRefresh,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date("2026-06-14"),
+      lastModified: siteRefresh,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/education`,
-      lastModified: new Date("2026-06-14"),
+      lastModified: siteRefresh,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/projects`,
-      lastModified: new Date("2026-06-25"),
+      lastModified: siteRefresh,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/skills`,
-      lastModified: new Date("2026-06-14"),
+      lastModified: siteRefresh,
       changeFrequency: "monthly",
       priority: 0.7,
     },
