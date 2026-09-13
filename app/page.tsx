@@ -8,7 +8,9 @@ import HomeClient from "./HomeClient";
 // and Twitter overrides.
 
 export const metadata: Metadata = {
-  // Title is inherited from layout.tsx default — no override needed here.
+  title: "Ubayd Hattas | Data Science, Computer Science & AI",
+  description:
+    "Ubayd Hattas is a BSc student at the University of Cape Town studying Computer Science, Statistics & Data Science, building data products and working on applied machine learning and AI evaluation.",
   alternates: {
     canonical: "https://ubayd.me",
   },
@@ -19,6 +21,9 @@ export const metadata: Metadata = {
     lastName: "Hattas",
     username: "ubayd-hattas",
     gender: "male",
+    title: "Ubayd Hattas | Data Science, Computer Science & AI",
+    description:
+      "BSc student at UCT studying Computer Science, Statistics & Data Science. Applied ML, AI evaluation, and data products.",
   },
 };
 

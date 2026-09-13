@@ -4,7 +4,7 @@ import SkillsClient from "./SkillsClient";
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Technical and personal skills of Ubayd Hattas — programming, statistics, analytical thinking, and leadership.",
+    "Skills of Ubayd Hattas: Python, machine learning, domain adaptation, AI evaluation, data engineering, and web development, each tied to shipped project evidence.",
   alternates: {
     canonical: "https://ubayd.me/skills",
   },

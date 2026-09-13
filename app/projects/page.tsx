@@ -3,27 +3,19 @@ import ProjectsClient from "./ProjectsClient";
 import { routableProjects } from "./projects";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: {
+    absolute: "Projects by Ubayd Hattas | Data Science, ML & AI Research",
+  },
   description:
-    "Projects by Ubayd Hattas — including SA Data Hub (sadatahub.tech) and AfriGuard, a multilingual AI safety benchmark. Data science experiments, statistical tools, and programming work built during my first year at UCT.",
-  keywords: [
-    "Ubayd Hattas projects",
-    "SA Data Hub",
-    "AfriGuard",
-    "AI safety benchmark",
-    "South African data",
-    "Next.js projects",
-    "Python projects",
-    "UCT student projects",
-  ],
+    "Projects by Ubayd Hattas: Cross-City Building Age Classification, Digital Minds AI introspection research, AfriGuard, and SA Data Hub. Applied data science, machine learning, and AI evaluation from a UCT BSc student.",
   alternates: {
     canonical: "https://ubayd.me/projects",
   },
   openGraph: {
     type: "website",
-    title: "Projects | Ubayd Hattas",
+    title: "Projects by Ubayd Hattas | Data Science, ML & AI Research",
     description:
-      "Projects by Ubayd Hattas — SA Data Hub, AfriGuard, and more. Data science, AI safety research, and software built during my first year at UCT.",
+      "Applied data science, machine learning, and AI evaluation projects by Ubayd Hattas, including domain adaptation, AfriGuard, and SA Data Hub.",
     url: "https://ubayd.me/projects",
     images: [
       {
@@ -36,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projects | Ubayd Hattas",
+    title: "Projects by Ubayd Hattas | Data Science, ML & AI Research",
     description:
-      "Projects by Ubayd Hattas — SA Data Hub, AfriGuard AI safety research, and more.",
+      "Applied data science, machine learning, and AI evaluation projects by Ubayd Hattas.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -56,7 +48,7 @@ const projectsListJsonLd = {
   "@type": "ItemList",
   name: "Projects by Ubayd Hattas",
   description:
-    "Software projects, research, and tools built by Ubayd Hattas — UCT BSc student in Computer Science, Statistics & Data Science.",
+    "Software projects, research, and tools built by Ubayd Hattas, UCT BSc student in Computer Science, Statistics & Data Science.",
   url: "https://ubayd.me/projects",
   numberOfItems: routableProjects.length,
   itemListElement: routableProjects.map((project, index) => ({

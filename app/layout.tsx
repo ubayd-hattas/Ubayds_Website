@@ -19,37 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ubayd.me"),
   title: {
-    default: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
+    default: "Ubayd Hattas | Data Science, Computer Science & AI",
     template: "%s | Ubayd Hattas",
   },
   description:
-    "Ubayd Hattas is a first-year BSc student at the University of Cape Town, majoring in Computer Science, Statistics & Data Science. Creator of SA Data Hub — making South African data accessible. From Cape Town, South Africa.",
-  keywords: [
-    "Ubayd Hattas",
-    "Ubayd",
-    "Hattas",
-    "UCT",
-    "University of Cape Town",
-    "Computer Science",
-    "Data Science",
-    "Statistics",
-    "South Africa",
-    "Cape Town",
-    "SA Data Hub",
-    "sadatahub.tech",
-    "South African data",
-    "AI",
-    "Machine Learning",
-    "BSc student",
-    "Afriguard",
-    "Global South AI Safety Hackathon",
-    "AI safety benchmark",
-    "AI safety research",
-    "AI safety",
-    "AI safety guardrails",
-    "AI safety guardrails degradation research",
-    "Dr Mahier Hattas",
-  ],
+    "Ubayd Hattas is a BSc student at the University of Cape Town studying Computer Science, Statistics & Data Science, building data products and working on applied machine learning and AI evaluation.",
   authors: [{ name: "Ubayd Hattas", url: "https://ubayd.me" }],
   creator: "Ubayd Hattas",
   alternates: {
@@ -60,23 +34,23 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: "https://ubayd.me",
     siteName: "Ubayd Hattas",
-    title: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
+    title: "Ubayd Hattas | Data Science, Computer Science & AI",
     description:
-      "First-year BSc student at UCT majoring in Computer Science, Statistics & Data Science. Creator of SA Data Hub — making South African public data accessible to everyone.",
+      "BSc student at UCT studying Computer Science, Statistics & Data Science. Applied ML, AI evaluation, and data products, including AfriGuard and SA Data Hub.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ubayd Hattas — Data Science Student at UCT",
+        alt: "Ubayd Hattas, Data Science and Computer Science student at UCT",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ubayd Hattas — Data Science & Computer Science Student at UCT",
+    title: "Ubayd Hattas | Data Science, Computer Science & AI",
     description:
-      "First-year BSc student at UCT majoring in Computer Science, Statistics & Data Science. Creator of SA Data Hub.",
+      "BSc student at UCT studying Computer Science, Statistics & Data Science. Applied ML, AI evaluation, and data products.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -106,30 +80,34 @@ const jsonLd = {
     "https://github.com/ubayd-hattas",
     "https://www.linkedin.com/in/ubayd-hattas/",
   ],
-  jobTitle: "BSc Student — Computer Science, Statistics & Data Science",
-  worksFor: {
-    "@type": "Organization",
+  jobTitle: "BSc Student in Computer Science, Statistics & Data Science",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
     name: "University of Cape Town",
     url: "https://www.uct.ac.za",
   },
-  birthDate: "2008-02-23",
-  birthPlace: { "@type": "Place", name: "Pretoria, South Africa" },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Cape Town",
     addressCountry: "ZA",
   },
   description:
-    "First-year BSc student at the University of Cape Town, majoring in Computer Science, Statistics and Data Science. Passionate about AI, mathematics, and building meaningful things with data.",
+    "BSc student at the University of Cape Town studying Computer Science, Statistics & Data Science. Builds data products and works on applied machine learning and AI evaluation.",
   knowsAbout: [
-    "Data Science", "Statistics", "Computer Science",
-    "Machine Learning", "Artificial Intelligence", "Mathematics", "Python", "R",
+    "Computer Science",
+    "Data Science",
+    "Statistics",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "AI Safety",
+    "Data Engineering",
+    "Python",
+    "TypeScript",
   ],
 };
-// WebSite schema — omits potentialAction/SearchAction because the blog search
-// is client-side only and does not respond to ?q= server-side. Declaring a
-// SearchAction for a non-functional endpoint generates spurious Search Console
-// warnings and violates Google's Sitelinks Searchbox guidelines.
+// WebSite schema — omits potentialAction/SearchAction because blog search is
+// not a server-side ?q= endpoint. Declaring SearchAction for a non-functional
+// template (e.g. /blog?q={search_term_string}) creates Search Console noise.
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -137,7 +115,8 @@ const websiteJsonLd = {
   name: "Ubayd Hattas",
   url: "https://ubayd.me",
   inLanguage: "en-ZA",
-  description: "Personal website of Ubayd Hattas — UCT BSc student in Computer Science, Statistics & Data Science. Creator of SA Data Hub.",
+  description:
+    "Personal website of Ubayd Hattas, UCT BSc student in Computer Science, Statistics & Data Science. Applied ML, AI evaluation, and data products.",
   author: { "@id": "https://ubayd.me/#person" },
 };
 

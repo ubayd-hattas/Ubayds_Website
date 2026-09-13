@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import EducationClient from "./EducationClient";
 
 export const metadata: Metadata = {
-  title: "Education",
+  title: {
+    absolute: "Education | Ubayd Hattas at the University of Cape Town",
+  },
   description:
-    "Ubayd Hattas's academic journey at the University of Cape Town — BSc Computer Science, Statistics & Data Science.",
+    "Education of Ubayd Hattas. BSc student at the University of Cape Town studying Computer Science, Statistics & Data Science (2026 onwards).",
   alternates: {
     canonical: "https://ubayd.me/education",
   },
