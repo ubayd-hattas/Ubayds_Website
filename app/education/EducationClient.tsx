@@ -6,12 +6,8 @@ import { motion } from "framer-motion";
 import {
   GraduationCap,
   BookOpen,
-  FlaskConical,
-  Calculator,
-  Cpu,
-  TrendingUp,
-  ChevronRight,
   Compass,
+  ChevronRight,
 } from "lucide-react";
 
 const fadeUp = {
@@ -23,44 +19,34 @@ const fadeUp = {
   }),
 };
 
-const modules = [
-  {
-    icon: Calculator,
-    code: "MAM1031F & MAM1032S",
-    name: "Mathematics",
-    desc: "Right now this means calculus and linear algebra — the language used to describe almost everything I'll build later, from statistical models to machine learning.",
-  },
-  {
-    icon: TrendingUp,
-    code: "STA1006S",
-    name: "Mathematical Statistics",
-    desc: "Working through probability theory and the early foundations of statistical inference — the theory behind every chart and conclusion I put on SA Data Hub.",
-  },
-  {
-    icon: Cpu,
-    code: "CSC1015F & CSC1016S",
-    name: "Computer Science",
-    desc: "Building up algorithms and data structures in Python — writing code that's correct and efficient, which feeds directly into how I build and ship projects like SA Data Hub.",
-  },
-  {
-    icon: FlaskConical,
-    code: "PHY1023H",
-    name: "Physics",
-    desc: "Mechanics and the properties of matter — outside my major, but it sharpens the same muscle: modelling a real system with the right assumptions and the right maths.",
-  },
-];
-
 const trajectory = [
-  { year: "2026", label: "First Year: Mathematical, statistical & computational foundations", status: "current" },
-  { year: "2027", label: "Second Year: Deepen Statistical & CS theory", status: "upcoming" },
-  { year: "2028", label: "Third Year: Honours Pathway / Specialisation", status: "upcoming" },
-  { year: "2029+", label: "Postgraduate research or industry", status: "future" },
+  { year: "Now", label: "Building foundations in CS, statistics & data science while shipping applied projects", status: "current" },
+  { year: "Next", label: "Deeper theory, stronger systems skills, and more rigorous research practice", status: "upcoming" },
+  { year: "Later", label: "Postgraduate study or industry work in data science, ML, or AI evaluation", status: "future" },
 ];
 
 const achievements = [
   {
+    label: "Hack4Dev Data Science Hackathon",
+    detail:
+      "Cross-city building-age classification: Madrid to Amsterdam transfer with class-conditional CORAL (0.36 to 0.65 zero-shot macro-F1) and a spatial adjacency audit of few-shot gains",
+    year: "2026",
+  },
+  {
+    label: "Digital Minds Research Sprint",
+    detail:
+      "Apart Research — capability-controlled LLM introspection study across 9,269 trials",
+    year: "2026",
+  },
+  {
+    label: "Global South AI Safety Hackathon: AfriGuard",
+    detail:
+      "Multilingual safety benchmark showing guardrail collapse outside English (50.1% vs 24.4% ASR)",
+    year: "2026",
+  },
+  {
     label: "Mohamed Sedick Excellence Prize",
-    detail: "R2,000 award for placing first in Physics Grade 11",
+    detail: "First place in Physics, Grade 11",
     year: "2024",
   },
   {
@@ -110,8 +96,9 @@ export default function EducationClient() {
             right foundation.
           </h1>
           <p className="text-[15px] text-secondary leading-relaxed max-w-xl">
-            A degree is a structure. What matters is how deeply you engage with
-            it. I'm here to understand, not just to pass.
+            Ubayd Hattas, BSc student at the University of Cape Town studying
+            Computer Science, Statistics &amp; Data Science. A degree is a structure;
+            what matters is how deeply you engage with it.
           </p>
         </motion.div>
 
@@ -129,14 +116,12 @@ export default function EducationClient() {
             </div>
             <div>
               <h2 className="text-[16px] font-semibold text-primary mb-2">
-                What I'm focused on right now
+                What I&apos;m focused on right now
               </h2>
               <p className="text-[13px] text-secondary leading-relaxed">
-                My current focus is building strong foundations in computer science, 
-                statistics and mathematics while applying those ideas through real 
-                projects. Alongside my coursework at UCT, I continue improving SA 
-                Data Hub, learning more about databases and data management, and 
-                exploring how public data can be turned into useful tools and insights.
+                Strong foundations in computer science, statistics, and mathematics,
+                applied through data products, machine learning, domain adaptation, and
+                AI evaluation research. Coursework and projects reinforce each other.
               </p>
             </div>
           </div>
@@ -160,10 +145,10 @@ export default function EducationClient() {
                   University of Cape Town
                 </h2>
                 <p className="text-[13px] text-secondary mt-0.5">
-                  BSc Computer Science, Statistics & Data Science
+                  BSc · Computer Science, Statistics &amp; Data Science
                 </p>
                 <p className="text-[12px] text-indigo-400 mt-1 font-mono">
-                  2026 — Present
+                  2026–Present
                 </p>
               </div>
             </div>
@@ -174,11 +159,10 @@ export default function EducationClient() {
 
           <div className="mt-6 pt-6 border-t border-white/[0.06]">
             <p className="text-[13px] text-secondary leading-relaxed">
-              UCT is consistently ranked as Africa's top university and among
-              the world's leading research institutions. My triple major in
-              Computer Science, Statistics, and Data Science is a deliberately
-              interdisciplinary foundation, bridging formal mathematical
-              reasoning, computational methods, and applied data analysis.
+              UCT is consistently ranked as Africa&apos;s top university and among
+              the world&apos;s leading research institutions. Studying Computer Science
+              alongside Statistics &amp; Data Science gives an interdisciplinary foundation:
+              formal mathematical reasoning, computational methods, and applied analysis.
             </p>
           </div>
         </motion.div>
@@ -200,7 +184,7 @@ export default function EducationClient() {
                 Trafalgar Secondary School
               </h2>
               <p className="text-[13px] text-secondary mt-0.5">
-                National Senior Certificate (NSC) 
+                National Senior Certificate (NSC)
               </p>
               <p className="text-[12px] text-dim font-mono mt-1">
                 Graduated 2025
@@ -209,12 +193,12 @@ export default function EducationClient() {
           </div>
           <div className="mt-6 pt-6 border-t border-white/[0.06]">
             <p className="text-[13px] text-secondary leading-relaxed">
-              My high school years taught me the true value of consistency and 
-              self-discipline. I built strong results in mathematics and physical 
-              sciences through methodical study habits and I spent my senior year 
-              both leading the student body as Head Boy and tutoring my peers. I am 
-              incredibly grateful to my principal and teachers for their belief in me. 
-              The guidance and opportunities they provided gave me the foundation I 
+              My high school years taught me the true value of consistency and
+              self-discipline. I built strong results in mathematics and physical
+              sciences through methodical study habits and I spent my senior year
+              both leading the student body as Head Boy and tutoring my peers. I am
+              incredibly grateful to my principal and teachers for their belief in me.
+              The guidance and opportunities they provided gave me the foundation I
               needed to be exactly where I am today.
             </p>
           </div>
@@ -253,49 +237,6 @@ export default function EducationClient() {
           </div>
         </motion.div>
 
-        {/* Current modules */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-lg font-semibold text-primary mb-2">
-            What I'm studying right now
-          </h2>
-          <p className="text-[13px] text-dim mb-6 max-w-2xl">
-            My first-year modules, and what each one means for what I'm
-            building today.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {modules.map((mod, i) => (
-              <motion.div
-                key={mod.code}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="card p-6 group"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <mod.icon
-                    size={16}
-                    className="text-indigo-400 group-hover:scale-110 transition-transform"
-                  />
-                  <span className="text-[11px] font-mono text-indigo-400/70">
-                    {mod.code}
-                  </span>
-                </div>
-                <h3 className="text-[14px] font-semibold text-primary mb-1.5">
-                  {mod.name}
-                </h3>
-                <p className="text-[13px] text-dim leading-relaxed">{mod.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Trajectory */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -321,7 +262,7 @@ export default function EducationClient() {
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-[12px] font-mono text-indigo-400 w-10 shrink-0">
+                  <span className="text-[12px] font-mono text-indigo-400 w-12 shrink-0">
                     {t.year}
                   </span>
                   <p

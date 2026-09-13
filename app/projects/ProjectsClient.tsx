@@ -7,7 +7,7 @@ import {
   Github, ExternalLink, Lock, Wrench, Star, ArrowUpRight, ChevronRight,
 } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
-import { projects, type Project } from "./projects";
+import { publicProjects, type Project } from "./projects";
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 
@@ -23,9 +23,10 @@ const fadeUp = {
 // ─── Status config ────────────────────────────────────────────────────────────
 
 const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
-  active:   { label: "Active",   color: "text-green-400", bg: "bg-green-500/10 border-green-500/20"      },
-  building: { label: "Building", color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20"      },
-  planned:  { label: "Planned",  color: "text-dim",       bg: "bg-[var(--surface)] border-[var(--border)]" },
+  active:    { label: "Active",    color: "text-green-400", bg: "bg-green-500/10 border-green-500/20"      },
+  completed: { label: "Completed", color: "text-sky-400",   bg: "bg-sky-500/10 border-sky-500/20"          },
+  building:  { label: "Building",  color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20"      },
+  planned:   { label: "Planned",   color: "text-dim",       bg: "bg-[var(--surface)] border-[var(--border)]" },
 };
 
 // ─── FeaturedProject — links to dedicated page ────────────────────────────────
@@ -339,8 +340,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProjectsClient() {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  const featured = publicProjects.filter((p) => p.featured);
+  const rest = publicProjects.filter((p) => !p.featured);
 
   return (
     <PageTransition>
@@ -350,12 +351,12 @@ export default function ProjectsClient() {
           <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show" className="mb-14">
             <span className="tag mb-4 inline-block">Projects</span>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight gradient-text mb-4">
-              Things I'm building
+              Things I&apos;m building
               <br />and thinking about.
             </h1>
             <p className="text-[15px] leading-relaxed max-w-xl" style={{ color: "var(--foreground-muted)" }}>
-              Early-stage work. I'm a first-year student, not a seasoned engineer.
-              But I believe in showing your work, even when it's unfinished.
+              Applied data science, machine learning, AI evaluation, and software by Ubayd Hattas,
+              a first-year BSc student at UCT. Real projects with evidence, not placeholders.
             </p>
           </motion.div>
 

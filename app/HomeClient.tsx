@@ -6,8 +6,10 @@ import Image from "next/image";
 import {
   ArrowRight, Github, Linkedin, Mail,
   BookOpen, ChevronRight, Sparkles, BarChart2, Brain, Code2, PenLine,
+  ExternalLink,
 } from "lucide-react";
 import { publishedPostsMeta } from "./blog/posts";
+import { homepageFeaturedProjects } from "./projects/projects";
 import PageTransition from "@/components/PageTransition";
 
 const fadeUp = {
@@ -23,17 +25,17 @@ const focusAreas = [
   {
     icon: BarChart2,
     label: "Statistics & Data Science",
-    desc: "Finding signal in noise. Building rigorous frameworks for understanding South Africa through data.",
+    desc: "Feature engineering, evaluation, and turning messy real-world data into decisions you can defend.",
   },
   {
     icon: Brain,
-    label: "Artificial Intelligence",
-    desc: "Exploring the mechanics behind machine learning and what it means for how we'll work and think.",
+    label: "Machine Learning & AI Evaluation",
+    desc: "Applied ML, domain adaptation, and careful tests of whether AI systems do what we claim they do.",
   },
   {
     icon: Code2,
     label: "Computer Science",
-    desc: "Algorithms, systems, and the craft of writing code that is clean, efficient, and purposeful.",
+    desc: "Algorithms, systems, and shipping software. From research prototypes to public data products.",
   },
 ];
 
@@ -82,17 +84,7 @@ export default function HomeClient() {
                   className="text-[13px] font-medium tracking-wide mb-6 max-w-xl"
                   style={{ color: "var(--foreground-dim)" }}
                 >
-                  Former Head Boy · NSC Top Achiever · Creator of{" "}
-                  <a
-                    href="https://sadatahub.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors font-semibold"
-                    style={{ color: "var(--accent)" }}
-                    aria-label="SA Data Hub — South African public data platform"
-                  >
-                    SA Data Hub
-                  </a>
+                  Applied ML · AI evaluation · Data products · Former Head Boy
                 </motion.p>
 
                 {/* Short supporting text */}
@@ -101,9 +93,8 @@ export default function HomeClient() {
                   className="text-[15px] leading-relaxed mb-10 max-w-lg"
                   style={{ color: "var(--foreground-dim)" }}
                 >
-                  First-year at the University of Cape Town, building tools that make
-                  South African public data easier to explore and understand.
-                  From Pretoria, raised in Cape Town.
+                  First-year at the University of Cape Town, building data products and working on
+                  applied machine learning and AI evaluation. From Pretoria, raised in Cape Town.
                 </motion.p>
 
                 {/* CTAs */}
@@ -114,15 +105,6 @@ export default function HomeClient() {
                   <Link href="/about" className="btn-primary">
                     Learn about me <ArrowRight size={14} />
                   </Link>
-                  <a
-                    href="https://sadatahub.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                    aria-label="Visit SA Data Hub — South African public data platform"
-                  >
-                    SA Data Hub ↗
-                  </a>
                   <Link href="/projects" className="btn-secondary">View projects</Link>
                   <a href="/cv.pdf" download="Ubayd_Hattas_CV.pdf" className="btn-secondary">
                     Download CV
@@ -167,7 +149,7 @@ export default function HomeClient() {
                     style={{ background: "rgba(99,102,241,0.15)" }} aria-hidden="true" />
                   <Image
                     src="/profile.jpg"
-                    alt="Ubayd Hattas — BSc student at UCT"
+                    alt="Ubayd Hattas — BSc student at the University of Cape Town studying Computer Science, Statistics & Data Science"
                     width={300}
                     height={300}
                     priority
@@ -226,112 +208,101 @@ export default function HomeClient() {
                   University of Cape Town
                 </p>
                 <p className="text-[12px] mt-0.5" style={{ color: "var(--foreground-dim)" }}>
-                  BSc · Computer Science, Statistics &amp; Data Science · 2026–2028
+                  BSc · Computer Science, Statistics &amp; Data Science · 2026–Present
                 </p>
               </div>
               <Link href="/education"
                 className="flex items-center gap-1 text-[12px] transition-colors"
                 style={{ color: "var(--accent)" }}
-                aria-label="View education details">
+                aria-label="View education details for Ubayd Hattas">
                 Details <ChevronRight size={13} aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
         </section>
 
-        {/* AfriGuard highlight */}
+        {/* Featured projects — driven by projects.ts */}
         <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
           <div className="max-w-5xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="card p-6 md:p-8"
-              style={{ borderColor: "rgba(99,102,241,0.25)", background: "rgba(99,102,241,0.04)" }}
+              className="flex items-center justify-between mb-8"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div className="max-w-xl">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xl" aria-hidden="true">🛡️</span>
-                    <span className="text-[11px] uppercase tracking-widest font-medium"
-                      style={{ color: "var(--accent)" }}>Featured project</span>
-                  </div>
-                  <h2 className="text-[18px] font-semibold mb-2" style={{ color: "var(--foreground)" }}>
-                    AfriGuard
-                  </h2>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--foreground-muted)" }}>
-                    A multilingual AI safety benchmark built at the Global South AI Safety Hackathon.
-                    We red-teamed four frontier LLMs across seven South African languages and found
-                    that safety guardrails catastrophically degrade outside of English — with a mean
-                    attack success rate of 50.1% versus 24.4% in English.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 shrink-0">
-                  <a
-                    href="https://github.com/ubayd-hattas/AfriGuard"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                    aria-label="View AfriGuard on GitHub"
-                  >
-                    View on GitHub <ArrowRight size={14} aria-hidden="true" />
-                  </a>
-                  <a
-                    href="https://afriguard.streamlit.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary text-center"
-                    aria-label="Visit AfriGuard live dashboard"
-                  >
-                    Live dashboard ↗
-                  </a>
-                </div>
-              </div>
+              <span className="text-[13px] uppercase tracking-widest font-medium"
+                style={{ color: "var(--foreground-dim)" }}>
+                Selected work
+              </span>
+              <Link href="/projects"
+                className="flex items-center gap-1 text-[12px] transition-colors"
+                style={{ color: "var(--accent)" }}
+                aria-label="View all projects by Ubayd Hattas">
+                All projects <ChevronRight size={13} aria-hidden="true" />
+              </Link>
             </motion.div>
-          </div>
-        </section>
 
-        {/* SA Data Hub highlight */}
-        <section className="section" style={{ borderTop: "1px solid var(--border)" }}>
-          <div className="max-w-5xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="card p-6 md:p-8"
-              style={{ borderColor: "rgba(16,185,129,0.25)", background: "rgba(16,185,129,0.04)" }}
-            >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div className="max-w-xl">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xl" aria-hidden="true">🗺️</span>
-                    <span className="text-[11px] uppercase tracking-widest font-medium"
-                      style={{ color: "var(--accent)" }}>Featured project</span>
+            <div className="space-y-4">
+              {homepageFeaturedProjects.map((project, i) => (
+                <motion.div
+                  key={project.slug}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.6 }}
+                  className="card p-6 md:p-8"
+                  style={{
+                    borderColor: project.accentColor
+                      ? project.accentColor.replace("0.10", "0.25").replace("0.12", "0.25")
+                      : undefined,
+                    background: project.accentColor ?? undefined,
+                  }}
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="max-w-xl">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xl" aria-hidden="true">{project.icon}</span>
+                        <span className="text-[11px] uppercase tracking-widest font-medium"
+                          style={{ color: "var(--accent)" }}>Featured project</span>
+                      </div>
+                      <h2 className="text-[18px] font-semibold mb-2" style={{ color: "var(--foreground)" }}>
+                        {project.title}
+                      </h2>
+                      <p className="text-[14px] leading-relaxed" style={{ color: "var(--foreground-muted)" }}>
+                        {project.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-2 shrink-0 relative z-10">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="btn-primary"
+                        aria-label={`View ${project.title} project details`}
+                      >
+                        View project <ArrowRight size={14} aria-hidden="true" />
+                      </Link>
+                      {project.live ? (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary text-center"
+                          aria-label={`Open live link for ${project.title}`}
+                        >
+                          Live ↗
+                        </a>
+                      ) : project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary text-center inline-flex items-center justify-center gap-1.5"
+                          aria-label={`View ${project.title} on GitHub`}
+                        >
+                          <ExternalLink size={13} aria-hidden="true" /> GitHub
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
-                  <h2 className="text-[18px] font-semibold mb-2" style={{ color: "var(--foreground)" }}>
-                    SA Data Hub
-                  </h2>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--foreground-muted)" }}>
-                    A public platform making South African statistics accessible to students, journalists,
-                    and citizens. Includes interactive dashboards, a province explorer, data stories,
-                    public datasets, methodology documentation, and regular updates — all sourced from
-                    Statistics South Africa and the SARB.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 shrink-0">
-                  <a
-                    href="https://sadatahub.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                    aria-label="Visit SA Data Hub website"
-                  >
-                    Visit SA Data Hub <ArrowRight size={14} aria-hidden="true" />
-                  </a>
-                  <Link href="/projects" className="btn-secondary text-center">
-                    All projects
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -348,7 +319,7 @@ export default function HomeClient() {
                 <br />Consistency over bursts.
               </h2>
               <p className="text-[15px] leading-relaxed mb-6" style={{ color: "var(--foreground-muted)" }}>
-                I grew up with early access to technology — getting my first computer at age five —
+                I grew up with early access to technology, getting my first computer at age five,
                 and watching my father build his career at the heart of South African data.
                 That environment shaped how I think. I&apos;m not in a hurry. I&apos;m building a foundation that lasts.
               </p>
@@ -379,7 +350,7 @@ export default function HomeClient() {
               <Link href="/blog"
                 className="flex items-center gap-1 text-[12px] transition-colors"
                 style={{ color: "var(--accent)" }}
-                aria-label="View all blog posts">
+                aria-label="View all blog posts by Ubayd Hattas">
                 All posts <ChevronRight size={13} aria-hidden="true" />
               </Link>
             </motion.div>
@@ -437,7 +408,7 @@ export default function HomeClient() {
                 Let&apos;s connect
               </h2>
               <p className="text-[15px] mb-8 max-w-md mx-auto" style={{ color: "var(--foreground-muted)" }}>
-                Whether you&apos;re a researcher, recruiter, or fellow student — I&apos;m always open to a good conversation.
+                Whether you&apos;re a researcher, recruiter, or fellow student, I&apos;m always open to a good conversation.
               </p>
               <Link href="/contact" className="btn-primary mx-auto">
                 Get in touch <ArrowRight size={14} aria-hidden="true" />

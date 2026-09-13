@@ -71,14 +71,27 @@ const timeline: TimelineItem[] = [
     year: "2026",
     label: "Began BSc at UCT",
     detail:
-      "First-year student at the University of Cape Town, majoring in Computer Science, Statistics, and Data Science.",
+      "First-year student at the University of Cape Town studying Computer Science, Statistics & Data Science.",
   },
-   {
+  {
     year: "2026",
     label: "Launched SA Data Hub",
     detail:
-      "Built and shipped sadatahub.tech — a public platform making South African statistics accessible to anyone, with interactive visualisations and transparent data sourcing.",
+      "Built and shipped sadatahub.tech, a public platform making South African statistics accessible to anyone, with interactive visualisations and transparent data sourcing.",
     href: "https://sadatahub.tech",
+  },
+  {
+    year: "2026",
+    label: "AfriGuard & Digital Minds",
+    detail:
+      "Multilingual AI safety benchmark and capability-controlled LLM introspection research with Apart Research / Global South AI Safety Hackathon.",
+  },
+  {
+    year: "2026",
+    label: "Cross-City Building Age Classification",
+    detail:
+      "Hack4Dev Data Science Hackathon. Madrid to Amsterdam Landsat transfer learning with domain adaptation and evaluation audits.",
+    href: "/projects/cross-city-building-age-classification",
   },
 ];
 
@@ -112,7 +125,7 @@ export default function AboutClient() {
             </span>
             <span className="flex items-center gap-1.5 text-[13px] text-secondary">
               <GraduationCap size={13} className="text-indigo-400" aria-hidden="true" />
-              UCT BSc Class of 2028
+              UCT BSc · 2026–Present
             </span>
           </div>
         </motion.div>
@@ -275,14 +288,23 @@ export default function AboutClient() {
                     <div className="mt-[5px] w-2 h-2 rounded-full bg-indigo-500/60 shrink-0" aria-hidden="true" />
                     <div>
                       {item.href ? (
-                        <a
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[14px] font-medium text-primary hover:text-indigo-400 transition-colors underline-offset-4 hover:underline"
-                        >
-                          {item.label}
-                        </a>
+                        item.href.startsWith("http") ? (
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[14px] font-medium text-primary hover:text-indigo-400 transition-colors underline-offset-4 hover:underline"
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          <a
+                            href={item.href}
+                            className="text-[14px] font-medium text-primary hover:text-indigo-400 transition-colors underline-offset-4 hover:underline"
+                          >
+                            {item.label}
+                          </a>
+                        )
                       ) : (
                         <p className="text-[14px] font-medium text-primary">
                           {item.label}
