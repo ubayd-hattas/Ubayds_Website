@@ -84,7 +84,7 @@ export const projects: Project[] = [
     longDesc:
       "Hack4Dev Data Science Hackathon. Domain adaptation under a real city shift: feature engineering from satellite time series, class-balanced Random Forests, CORAL alignment, few-shot transfer, and a spatial adjacency audit that stress-tested whether our own evaluation was inflating few-shot gains.",
     fullDesc:
-      "The task was to estimate which of four construction-age groups dominates a 30 m satellite patch, using roughly forty years of Landsat spectral reflectance. Models were trained primarily on Madrid and had to generalise to Amsterdam (a city never seen in training), creating a classic domain-adaptation problem scored on macro-F1.\n\nWe engineered about 108 per-pixel features: multi-period band statistics, spectral indices, the size and timing of major spectral change, and neighbourhood feature averages. Stage 1 was a class-balanced Random Forest (500 trees). For zero-shot transfer we used class-conditional CORAL, aligning each Madrid age group to the covariance of Amsterdam pixels the model assigned to that group over two rounds, with no Amsterdam labels. With a few local labels we added budget-scaled feature whitening, a small local forest, probability blending with Stage 1, and inverse-distance neighbour smoothing.\n\nMadrid in-city 5x5 CV macro-F1 reached 0.664 ± 0.004. Raw Amsterdam zero-shot scored 0.358; pooled CORAL 0.578; class-conditional CORAL 0.651, roughly 0.36 to 0.65 macro-F1 with zero Amsterdam labels. Few-shot rose from 0.662 ± 0.003 at 5 labels/class to 0.737 ± 0.005 at 200.\n\nWe also audited spatial adjacency in the few-shot protocol. Under the organisers' random split, roughly 80% of support pixels had an immediate map neighbour in the query set; a spatial-block re-run showed that about half the few-shot lift at higher budgets was proximity rather than labels. The zero-shot result uses no labels, has no adjacency issue, and remains the strongest transferable number. Treating the few-shot curve as an upper bound was a deliberate evaluation stress test, not a footnote.",
+      "The task was to estimate which of four construction-age groups dominates a 30 m satellite patch, using roughly forty years of Landsat spectral reflectance. Models were trained primarily on Madrid and had to generalise to Amsterdam (a city never seen in training), creating a classic domain-adaptation problem scored on macro-F1.\n\nWe engineered about 108 per-pixel features: multi-period band statistics, spectral indices, the size and timing of major spectral change, and neighbourhood feature averages. Stage 1 was a class-balanced Random Forest (500 trees). For zero-shot transfer we used class-conditional CORAL, aligning each Madrid age group to the covariance of Amsterdam pixels the model assigned to that group over two rounds, with no Amsterdam labels. With a few local labels we added budget-scaled feature whitening, a small local forest, probability blending with Stage 1, and inverse-distance neighbour smoothing.\n\nMadrid in-city 5x5 CV macro-F1 reached 0.664 ± 0.004. Raw Amsterdam zero-shot scored 0.358; pooled CORAL 0.578; class-conditional CORAL 0.651, roughly 0.36 to 0.65 macro-F1 with zero Amsterdam labels. Few-shot rose from 0.662 ± 0.003 at 5 labels/class to 0.737 ± 0.005 at 200.\n\nWe also audited spatial adjacency in the few-shot protocol. Under the organisers' random split, roughly 80% of support pixels had an immediate map neighbour in the query set; a spatial-block re-run showed that about half the few-shot lift at higher budgets was proximity rather than labels. The zero-shot result uses no labels, has no adjacency issue, and remains the strongest transferable number. Treating the few-shot curve as an upper bound was a deliberate evaluation stress test, not a footnote.\n\nTeam and attribution: this was a team entry. Every score on this page comes from the israel-transfer-pipeline branch of the repository, which teammate Israel Khangala committed and which the GitHub link above points to. The repository's main branch holds an earlier pipeline that scored lower (macro-F1 0.55 to 0.62). All scores are the team's own internal evaluation, not the organisers' leaderboard.",
     tags: [
       "Python",
       "Machine Learning",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       "Cross-Validation",
       "Statistics",
     ],
-    github: "https://github.com/ubayd-hattas/Data_Science_Hackathon",
+    github: "https://github.com/ubayd-hattas/Data_Science_Hackathon/tree/israel-transfer-pipeline",
     live: null,
     status: "completed",
     featured: true,
@@ -120,7 +120,7 @@ export const projects: Project[] = [
       "Spatial adjacency audit showing ~half of higher-budget few-shot lift was proximity",
     ],
     metrics: [
-      { label: "Event",           value: "Hack4Dev Data Science Hackathon" },
+      { label: "Event",           value: "Hack4Dev Hackathon (team entry)" },
       { label: "Type",            value: "Domain Adaptation / Remote Sensing" },
       { label: "Zero-shot",       value: "0.36 → 0.65 macro-F1" },
       { label: "Madrid CV",       value: "0.664 ± 0.004" },
@@ -130,27 +130,27 @@ export const projects: Project[] = [
     screenshots: [
       {
         src: "/screenshots/building-age-classification/scatter.png",
-        alt: "Feature-space scatter comparing Madrid and Amsterdam building-age classes, from the Cross-City Building Age Classification project by Ubayd Hattas",
+        alt: "Feature-space scatter comparing Madrid and Amsterdam building-age classes, from the Cross-City Building Age Classification project",
         label: "Cross-city feature space",
       },
       {
         src: "/screenshots/building-age-classification/pipeline.png",
-        alt: "Transfer pipeline diagram for Madrid to Amsterdam building-age classification by Ubayd Hattas",
+        alt: "Transfer pipeline diagram for Madrid to Amsterdam building-age classification",
         label: "Transfer pipeline",
       },
       {
         src: "/screenshots/building-age-classification/transfer-curve.png",
-        alt: "Transfer curve showing zero-shot and few-shot macro-F1 from Madrid to Amsterdam, Cross-City Building Age Classification by Ubayd Hattas",
+        alt: "Transfer curve showing zero-shot and few-shot macro-F1 from Madrid to Amsterdam, Cross-City Building Age Classification",
         label: "Transfer curve",
       },
       {
         src: "/screenshots/building-age-classification/results-table.png",
-        alt: "Results table of Madrid CV and Amsterdam transfer macro-F1 scores, Cross-City Building Age Classification by Ubayd Hattas",
+        alt: "Results table of Madrid CV and Amsterdam transfer macro-F1 scores, Cross-City Building Age Classification",
         label: "Results table",
       },
       {
         src: "/screenshots/building-age-classification/few-shot-curve.png",
-        alt: "Few-shot transfer curve across label budgets for Amsterdam building-age classification by Ubayd Hattas",
+        alt: "Few-shot transfer curve across label budgets for Amsterdam building-age classification",
         label: "Few-shot curve",
       },
     ],
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     seo: {
       title: "Cross-City Building Age Classification: Madrid to Amsterdam Transfer Learning",
       description:
-        "Domain adaptation for Landsat building-age classification: class-conditional CORAL lifts Amsterdam zero-shot macro-F1 from 0.36 to 0.65. Hack4Dev project by Ubayd Hattas.",
+        "Domain adaptation for Landsat building-age classification: class-conditional CORAL lifts Amsterdam zero-shot macro-F1 from 0.36 to 0.65. Hack4Dev team project with Israel Khangala.",
       ogImage: "/pics/Building_Age_Classification.png",
     },
   },
@@ -218,11 +218,11 @@ export const projects: Project[] = [
     slug: "afriguard",
     title: "AfriGuard",
     description:
-      "A multilingual AI safety benchmark evaluating how well frontier LLMs maintain safety guardrails across South African languages. We red-teamed four models in seven languages, measuring Attack Success Rate across regionally relevant harms. Safety alignment catastrophically degrades outside of English.",
+      "A multilingual AI safety benchmark evaluating how well frontier LLMs maintain safety guardrails across South African languages. We red-teamed four models in seven languages across regionally relevant harms. The first-pass attack success rates came from an English-only refusal heuristic and are not validated findings; language-aware and native-speaker scoring is still to be done.",
     longDesc:
-      "Built over a single weekend at the Global South AI Safety Hackathon in Cape Town. AfriGuard tests whether the safety mechanisms that work in English actually hold up when harmful prompts are expressed in isiZulu, isiXhosa, Afrikaans, Sesotho, Sepedi, or Tsonga. The short answer: they don't.",
+      "Built over a single weekend at the Global South AI Safety Hackathon in Cape Town. AfriGuard tests whether the safety mechanisms that work in English actually hold up when harmful prompts are expressed in isiZulu, isiXhosa, Afrikaans, Sesotho, Sepedi, or Tsonga. We built the benchmark and a first scoring pass; whether the guardrails hold is not yet established, because that first pass was heuristic.",
     fullDesc:
-      "AfriGuard is a multilingual AI safety benchmark designed to evaluate how well large language models maintain safety guardrails across South African languages. The project investigates whether code-switching and local language usage can increase jailbreak success rates compared to English prompts.\n\nWe created 40 seed prompts across four harm categories endemic to South Africa (financial fraud targeting SASSA grant recipients, xenophobic incitement, political disinformation, and gang facilitation), translated them into six African languages plus an English baseline, and evaluated four frontier LLMs. That produced 280 benchmark prompts and 1,120 total model responses.\n\nThe findings were stark. The mean Attack Success Rate across all evaluations was 50.1%, more than double the English baseline of 24.4%. Certain model-language combinations reached over 90% ASR, meaning models complied with harmful requests nine times out of ten. The research confirms that a model can be safe in English and catastrophically unsafe in an African language.",
+      "AfriGuard is a multilingual AI safety benchmark designed to evaluate how well large language models maintain safety guardrails across South African languages. The project investigates whether code-switching and local language usage can increase jailbreak success rates compared to English prompts.\n\nWe created 40 seed prompts across four harm categories endemic to South Africa (financial fraud targeting SASSA grant recipients, xenophobic incitement, political disinformation, and gang facilitation), translated them into six African languages plus an English baseline, and evaluated four frontier LLMs. That produced 280 benchmark prompts and 1,120 total model responses.\n\nScoring is the weak point, and the project says so. The first pass used an English-only refusal heuristic, which produced a headline attack success rate of 50.1% against 24.4% for English. A later audit in the repository withdrew that figure as a validated result: the heuristic cannot tell a genuine jailbreak from nonsense output in an unfamiliar language, and 168 responses came back empty or blocked by the provider. Reviewers at the hackathon raised the same scoring concern and asked for native-speaker re-scoring.\n\nWhat stands is the benchmark itself: the seed prompts, the translations, the 1,120 collected responses, and the evaluation pipeline. Language-aware scoring with native-speaker validation is the next step before any attack success rate should be quoted.",
     tags: ["Python", "Pandas", "Streamlit", "AI Safety", "NLP", "Research", "Data Pipelines"],
     github: "https://github.com/ubayd-hattas/AfriGuard",
     live: "https://afriguard.streamlit.app/",
@@ -233,15 +233,15 @@ export const projects: Project[] = [
     icon: "🛡️",
     bannerImage: "/pics/Afriguard.png",
     goals:
-      "Investigate whether AI safety guardrails catastrophically degrade when harmful prompts are expressed in South African languages, and expose the real-world consequences for communities most likely to be targeted.",
+      "Build a benchmark to test whether AI safety guardrails weaken when harmful prompts are written in South African languages, using harms that matter to communities most likely to be targeted.",
     features: [
       "40 seed prompts across 4 regionally relevant harm categories",
       "7 language conditions (6 African languages + English baseline)",
       "280 benchmark prompts, 1,120 total model evaluations",
       "4 frontier LLMs tested (GPT-OSS, Llama 3.3, Kimi K2.6, Qwen 3)",
-      "Automated judging pipeline with harm-score classification",
+      "Heuristic first-pass scoring (superseded; validated scoring still to do)",
       "Interactive Streamlit analytics dashboard",
-      "Publication-ready figures (ASR heatmaps, model comparisons, language gaps)",
+      "Figures from the first scoring pass (heuristic, not validated)",
       "Reproducible end-to-end evaluation pipeline",
     ],
     metrics: [
@@ -250,7 +250,7 @@ export const projects: Project[] = [
       { label: "Evaluations",  value: "1,120 responses"            },
       { label: "Languages",    value: "7 (6 African + English)"    },
       { label: "Models",       value: "4 frontier LLMs"            },
-      { label: "Mean ASR",     value: "50.1% (vs 24.4% English)"  },
+      { label: "Scoring",      value: "Heuristic; re-scoring pending" },
     ],
     screenshots: [
       { src: "/screenshots/afriguard/team-working.png",       alt: "Ubayd Hattas and team working on AfriGuard at the Global South AI Safety Hackathon",    label: "The team at work"        },
@@ -263,7 +263,7 @@ export const projects: Project[] = [
     seo: {
       title: "AfriGuard: Multilingual AI Safety Benchmark for South African Languages",
       description:
-        "AfriGuard by Ubayd Hattas red-teamed 4 frontier LLMs across 7 South African languages. Mean attack success rate: 50.1%, more than double the English baseline of 24.4%.",
+        "AfriGuard by Ubayd Hattas red-teamed 4 frontier LLMs across 7 South African languages. Benchmark and dataset; the first-pass scoring was heuristic and is being replaced with validated scoring.",
       ogImage: "/pics/Afriguard.png",
     },
     relatedBlogPosts: [
@@ -272,6 +272,49 @@ export const projects: Project[] = [
         label: "Hackathon experience: from idea to research prototype in one weekend",
       },
     ],
+  },
+
+  // ── Evidence Before Erasure (Apart x CeSIA AI Incident Response Sprint) ───
+  {
+    slug: "evidence-before-erasure",
+    title: "Evidence Before Erasure",
+    description:
+      "A benchmark of how well automated collection policies preserve evidence from a live AI incident before it disappears. Periodic snapshots are compared with a budget-matched, event-driven policy on a real trace. The main contrast came back null, and the report says so.",
+    longDesc:
+      "Track 2 of the Apart x CeSIA AI Incident Response Research Sprint, built by a team of five. The pipeline is Python with the standard library only, developed as frozen stages that were each audited by someone who did not write the code.",
+    fullDesc:
+      "The question: when AI agents leave evidence on a page that can change or vanish, does a naive time-interval snapshotter lose materially more critical evidence than a policy that reacts to change notifications under the same request and storage budget? The test trace is a real one, AI agents sharing answers through a dormant wiki during evaluations.\n\nThe project implements a state-reconstruction engine, a shared observer and storage layer, four collection policies and an evaluation benchmark with human-labelled evidence. Each stage was specified in a contract before it was written and then checked independently.\n\nThe full 791-row experiment sweep was authorised and failed on a 7,200-second timeout before finishing its first row. A reduced primary contrast was run directly instead: every phase scored 0 of 23 held-out critical items, a clean null ten percentage points short of the pre-set threshold. The submitted report states that result, how it was obtained outside the normal authorisation gate, and which rows remain unfinished.\n\nLimits stated in the repository: one incident family, a purposive benchmark rather than a representative sample, and a simulation of a shared feed rather than a measurement of historical HTTP visibility.",
+    tags: ["Python", "Research", "Evaluation", "Reproducibility", "Testing"],
+    github: "https://github.com/ubayd-hattas/AI_Incident",
+    live: null,
+    status: "completed",
+    featured: false,
+    expandable: true,
+    accentColor: "rgba(16, 185, 129, 0.10)",
+    icon: "🗂️",
+    goals:
+      "Measure, under an equal budget, how much critical evidence different collection policies preserve from a live incident, and report the result honestly whichever way it falls.",
+    features: [
+      "Four collection policies compared under matched request and storage budgets",
+      "State-at-time reconstruction engine and shared observer/storage layer",
+      "Human-labelled benchmark with development and held-out splits",
+      "Stage-by-stage frozen contracts with independent audits",
+      "Standard-library-only Python, unit tested",
+      "Null primary result reported with full process disclosure",
+    ],
+    metrics: [
+      { label: "Event",   value: "Apart x CeSIA AI Incident Response Sprint" },
+      { label: "Type",    value: "Evaluation Research (team of five)" },
+      { label: "Primary", value: "Null: 0 of 23 held-out items" },
+      { label: "Status",  value: "Submitted; sweep incomplete" },
+    ],
+    dateAdded: "2026-10-25",
+    lastUpdated: "2026-10-25",
+    seo: {
+      title: "Evidence Before Erasure: Evidence Preservation for AI Incidents",
+      description:
+        "Benchmarking periodic snapshot collection against an event-driven policy on a real AI incident trace. Apart x CeSIA sprint team project with a null primary result.",
+    },
   },
 
   // ── SA Data Hub ────────────────────────────────────────────────────────────
