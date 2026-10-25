@@ -25,25 +25,28 @@ const trajectory = [
   { year: "Later", label: "Postgraduate study or industry work in data science, ML, or AI evaluation", status: "future" },
 ];
 
-const achievements = [
+const events = [
   {
     label: "Hack4Dev Data Science Hackathon",
     detail:
-      "Cross-city building-age classification: Madrid to Amsterdam transfer with class-conditional CORAL (0.36 to 0.65 zero-shot macro-F1) and a spatial adjacency audit of few-shot gains",
+      "Team entry: Madrid to Amsterdam building-age transfer with class-conditional CORAL (0.36 to 0.65 zero-shot macro-F1, team's internal evaluation) and a spatial adjacency audit of few-shot gains",
     year: "2026",
   },
   {
     label: "Digital Minds Research Sprint",
     detail:
-      "Apart Research — capability-controlled LLM introspection study across 9,269 trials",
+      "Apart Research: capability-controlled LLM introspection study across 9,269 trials (team entry)",
     year: "2026",
   },
   {
     label: "Global South AI Safety Hackathon: AfriGuard",
     detail:
-      "Multilingual safety benchmark showing guardrail collapse outside English (50.1% vs 24.4% ASR)",
+      "Multilingual safety benchmark across seven South African languages and four models, 1,120 responses (team of four). Scoring is being redone",
     year: "2026",
   },
+];
+
+const achievements = [
   {
     label: "Mohamed Sedick Excellence Prize",
     detail: "First place in Physics, Grade 11",
@@ -148,7 +151,7 @@ export default function EducationClient() {
                   BSc · Computer Science, Statistics &amp; Data Science
                 </p>
                 <p className="text-[12px] text-indigo-400 mt-1 font-mono">
-                  2026–Present
+                  2026 to 2029 (expected graduation)
                 </p>
               </div>
             </div>
@@ -181,7 +184,7 @@ export default function EducationClient() {
             </div>
             <div>
               <h2 className="text-[16px] font-semibold text-primary">
-                Trafalgar Secondary School
+                Trafalgar High School
               </h2>
               <p className="text-[13px] text-secondary mt-0.5">
                 National Senior Certificate (NSC)
@@ -204,8 +207,13 @@ export default function EducationClient() {
           </div>
         </motion.div>
 
-        {/* Achievements */}
+        {/* Events and awards */}
+        {[
+          { title: "Hackathons and research sprints", items: events },
+          { title: "Awards and recognition", items: achievements },
+        ].map((section) => (
         <motion.div
+          key={section.title}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -213,10 +221,10 @@ export default function EducationClient() {
           className="mb-16"
         >
           <h2 className="text-lg font-semibold text-primary mb-6">
-            Achievements & recognition
+            {section.title}
           </h2>
           <div className="space-y-3">
-            {achievements.map((a, i) => (
+            {section.items.map((a, i) => (
               <motion.div
                 key={a.label}
                 initial={{ opacity: 0, x: -10 }}
@@ -236,6 +244,7 @@ export default function EducationClient() {
             ))}
           </div>
         </motion.div>
+        ))}
 
         {/* Trajectory */}
         <motion.div
