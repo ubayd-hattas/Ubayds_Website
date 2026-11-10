@@ -1,0 +1,28 @@
+name: PR title
+
+# Pull requests are squash-merged, so the PR title becomes the commit message.
+# This checks it follows the conventional commit shape: type(scope): summary
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Check the title
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(feat|fix|docs|chore|test|refactor|perf|ci|build|style|revert)(\([a-z0-9._/-]+\))?!?: [^ ].{0,70}$'
+          if printf '%s' "$TITLE" | grep -Eq "$pattern"; then
+            echo "Title is fine: $TITLE"
+          else
+            echo "::error::PR title must look like 'type(scope): summary', for example 'fix(blog): correct post date'. Allowed types: feat, fix, docs, chore, test, refactor, perf, ci, build, style, revert. Keep it under 72 characters."
+            exit 1
+          fi
