@@ -75,6 +75,93 @@ export interface Project {
 // ─── Project data ─────────────────────────────────────────────────────────────
 
 export const projects: Project[] = [
+  // ── SA Data Hub ────────────────────────────────────────────────────────────
+  {
+    slug: "sa-data-hub",
+    title: "SA Data Hub",
+    description:
+      "South Africa's official statistics in plain English, with every figure traced to the release it came from. Census 2011 and 2022 for all 213 municipalities, the 2026 local election results, release explainers and open CSV and JSON for every series.",
+    longDesc:
+      "Live at sadatahub.tech since May 2026. Figures come from Stats SA, the Reserve Bank, SAPS, the Department of Basic Education and the IEC. The build fails if a displayed figure is missing its source, release date or checked date, and corrections are logged publicly.",
+    fullDesc:
+      "SA Data Hub explains South Africa's official numbers where people live. Each of the 213 municipalities has a profile with Census 2011 and 2022 on the same boundaries, the 2026 local election results, and comparisons with its province and similar places. Municipality pages bring most of the site's search traffic.\n\nEvery statistic links to a series page with all its values, a citation, and CSV and JSON downloads. Release explainers cover what changed in a new CPI or labour force release, using the source's own breakdown. A release calendar lists the next dates, each taken from a release the site holds.\n\nThe rule the site is built around: a figure that cannot be traced to a held release is not shown. A check in the build enforces it, and withheld figures are recorded with the reason. Corrections go on a public log.\n\nData is entered by hand from releases I download. An automated updater and a PostgreSQL migration were both built and tested, then paused: the site makes no automated requests to Stats SA, and production reads JSON files at build time. CI runs the type-check, lint, 540 unit tests, dataset validation and a full build on every pull request.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Python", "Vitest", "Vercel"],
+    github: "https://github.com/ubayd-hattas/SA_DataHub",
+    live: "https://sadatahub.tech",
+    status: "active",
+    featured: true,
+    expandable: true,
+    accentColor: "rgba(16, 185, 129, 0.10)",
+    icon: "🗺️",
+    bannerImage: "/pics/og-image.png",
+    goals:
+      "Make South Africa's official statistics readable by students, journalists, teachers and residents, with every figure traceable to its source.",
+    features: [
+      "213 municipality profiles: Census 2011 and 2022 side by side, plus 2026 local election results",
+      "32 data series, each with its own page, citation, CSV and JSON",
+      "Release explainers for CPI and the Quarterly Labour Force Survey",
+      "Release calendar with an .ics feed",
+      "Build fails if a displayed figure has no source, release date or checked date",
+      "Public corrections log",
+      "Header search across places, statistics, answers and explainers",
+      "Money value calculator (CPI from 1980) and a compare tool",
+      "CI: type-check, lint, 540 unit tests, dataset validation and a full build",
+    ],
+    metrics: [
+      { label: "Status",         value: "Live since May 2026"   },
+      { label: "Municipalities", value: "213 profiles"          },
+      { label: "Data series",    value: "32, with CSV and JSON" },
+      { label: "Tests",          value: "540 unit tests in CI"  },
+    ],
+    screenshots: [
+      { src: "/screenshots/home.png",        alt: "SA Data Hub homepage by Ubayd Hattas",   label: "Homepage"         },
+      { src: "/screenshots/dashboard.png",   alt: "SA Data Hub interactive dashboard by Ubayd Hattas",   label: "Dashboard"        },
+      { src: "/screenshots/provinces.png",   alt: "SA Data Hub Province Explorer by Ubayd Hattas",       label: "Province Explorer" },
+      { src: "/screenshots/insights.png",    alt: "SA Data Hub Insights Hub by Ubayd Hattas",            label: "Insights Hub"     },
+      { src: "/screenshots/methodology.png", alt: "SA Data Hub methodology page by Ubayd Hattas",        label: "Methodology"      },
+    ],
+    dateAdded: "2026-06-13",
+    lastUpdated: "2026-11-10",
+    seo: {
+      title: "SA Data Hub: South Africa's Official Statistics, Traced to Source",
+      description:
+        "SA Data Hub by Ubayd Hattas: Census 2011 and 2022 for all 213 municipalities, 2026 election results, release explainers and open CSV and JSON, with every figure traced to its source.",
+      ogImage: "/pics/og-image.png",
+    },
+    relatedBlogPosts: [
+      {
+        slug: "sa-data-hub",
+        label: "Development notes: how I built SA Data Hub in my first semester",
+      },
+      {
+        slug: "stats-sa-father",
+        label: "Background: what growing up around Stats SA taught me about data",
+      },
+    ],
+  },
+
+  // ── Kwaai (pre-launch, with Jaswin Chinthala) ──────────────────────────────
+  {
+    slug: "kwaai",
+    title: "Kwaai",
+    description:
+      "Unofficial course reviews, a semester planner and a marks calculator for UCT students, built with Jaswin Chinthala. Not launched yet. Sign-in is by UCT student email with no passwords, reviews are anonymous to readers, and moderation, reporting and takedown requests are built in. Not affiliated with UCT.",
+    tags: ["Node.js", "Express", "SQLite", "JavaScript", "Docker"],
+    github: "https://github.com/UbaJaz/kwaai",
+    live: null,
+    status: "building",
+    featured: false,
+    expandable: false,
+    icon: "🎓",
+    dateAdded: "2026-11-10",
+    lastUpdated: "2026-11-10",
+    seo: {
+      title: "Kwaai: Course Reviews and Study Tools for UCT Students",
+      description:
+        "Kwaai is a pre-launch, unofficial course review and planning site for UCT students, built by Ubayd Hattas and Jaswin Chinthala.",
+    },
+  },
+
   // ── Cross-City Building Age Classification (Hack4Dev) ─────────────────────
   {
     slug: "cross-city-building-age-classification",
@@ -121,6 +208,7 @@ export const projects: Project[] = [
     ],
     metrics: [
       { label: "Event",           value: "Hack4Dev Hackathon (team entry)" },
+      { label: "Award",           value: "Best Performance Under Low Data Conditions" },
       { label: "Type",            value: "Domain Adaptation / Remote Sensing" },
       { label: "Zero-shot",       value: "0.36 → 0.65 macro-F1" },
       { label: "Madrid CV",       value: "0.664 ± 0.004" },
@@ -315,72 +403,6 @@ export const projects: Project[] = [
       description:
         "Benchmarking periodic snapshot collection against an event-driven policy on a real AI incident trace. Apart x CeSIA sprint team project with a null primary result.",
     },
-  },
-
-  // ── SA Data Hub ────────────────────────────────────────────────────────────
-  {
-    slug: "sa-data-hub",
-    title: "SA Data Hub",
-    description:
-      "A public platform making South African data accessible to students, journalists, and citizens. Explore population, employment, and economic data from Statistics South Africa, SARB, and other public institutions, with interactive visualisations, province comparisons, and transparent methodologies.",
-    longDesc:
-      "SA Data Hub combines official datasets from Statistics South Africa, the SARB, and other public institutions with interactive charts, province comparisons, historical timelines, and educational insights. The goal is not only to display data, but to help users understand what the data means.",
-    fullDesc:
-      "SA Data Hub is a public data platform designed to make South African statistics easier to understand and explore. It pulls from Statistics South Africa, the South African Reserve Bank, SAPS, and other official bodies, presenting figures not as raw tables but as narratives with context.\n\nThe platform is built with a strong emphasis on transparency: every dataset links to its primary source, shows its update frequency, and includes a methodology page explaining how data is collected and interpreted. The Insights Hub presents long-form data stories explaining the human significance behind the numbers.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Python", "Vercel"],
-    github: "https://github.com/ubayd-hattas",
-    live: "https://sadatahub.tech",
-    status: "active",
-    featured: true,
-    expandable: true,
-    accentColor: "rgba(16, 185, 129, 0.10)",
-    icon: "🗺️",
-    bannerImage: "/pics/og-image.png",
-    goals:
-      "Make South African public data genuinely accessible to students, journalists, researchers, and curious citizens, with no barrier to entry and no technical knowledge required.",
-    features: [
-      "Interactive Dashboard with cross-dataset filtering",
-      "Province Explorer with side-by-side comparisons",
-      "Data Insights Hub: long-form narratives",
-      "Historical Timelines with major SA events",
-      "Dataset Explanations: what changed, why it matters",
-      "Methodology & Transparency pages",
-      "Full-text search across all datasets",
-      "Automated data update scripts",
-      "Dark / Light / System themes",
-      "Fully responsive design",
-    ],
-    metrics: [
-      { label: "Status",     value: "Active Development"       },
-      { label: "Type",       value: "Public Data Platform"     },
-      { label: "Focus",      value: "South African Public Data" },
-      { label: "Built With", value: "Next.js + TypeScript"     },
-    ],
-    screenshots: [
-      { src: "/screenshots/home.png",        alt: "SA Data Hub homepage by Ubayd Hattas",   label: "Homepage"         },
-      { src: "/screenshots/dashboard.png",   alt: "SA Data Hub interactive dashboard by Ubayd Hattas",   label: "Dashboard"        },
-      { src: "/screenshots/provinces.png",   alt: "SA Data Hub Province Explorer by Ubayd Hattas",       label: "Province Explorer" },
-      { src: "/screenshots/insights.png",    alt: "SA Data Hub Insights Hub by Ubayd Hattas",            label: "Insights Hub"     },
-      { src: "/screenshots/methodology.png", alt: "SA Data Hub methodology page by Ubayd Hattas",        label: "Methodology"      },
-    ],
-    dateAdded: "2026-06-13",
-    lastUpdated: "2026-09-13",
-    seo: {
-      title: "SA Data Hub: South African Public Data Platform by Ubayd Hattas",
-      description:
-        "SA Data Hub by Ubayd Hattas makes South African public data explorable: population, employment, and economic statistics from Stats SA, SARB, and other official sources.",
-      ogImage: "/pics/og-image.png",
-    },
-    relatedBlogPosts: [
-      {
-        slug: "sa-data-hub",
-        label: "Development notes: how I built SA Data Hub in my first semester",
-      },
-      {
-        slug: "stats-sa-father",
-        label: "Background: what growing up around Stats SA taught me about data",
-      },
-    ],
   },
 
   // ── Personal Knowledge System (private / planned) ───────────────────────────
