@@ -100,7 +100,7 @@ const skillGroups: SkillGroup[] = [
       {
         name: "ETL & automated processing",
         evidence:
-          "AfriGuard end-to-end evaluation pipeline (1,120 responses); SA Data Hub automated update scripts; Landsat parquet loading and feature builds.",
+          "AfriGuard end-to-end evaluation pipeline (1,120 responses); SA Data Hub repeatable builds for census, crime and election data; Landsat parquet loading and feature builds.",
       },
       {
         name: "Pandas & NumPy",
@@ -110,7 +110,7 @@ const skillGroups: SkillGroup[] = [
       {
         name: "Public-data ingestion",
         evidence:
-          "SA Data Hub ingests and documents Stats SA, SARB, and other official South African sources with methodology pages.",
+          "SA Data Hub records figures from Stats SA, the SARB, SAPS, DBE and the IEC, each traced to the release it came from.",
       },
       {
         name: "Data validation & reproducibility",
@@ -127,7 +127,7 @@ const skillGroups: SkillGroup[] = [
       {
         name: "Multilingual AI safety evaluation",
         evidence:
-          "AfriGuard: 7 languages, 4 frontier models, ASR analysis showing guardrail collapse outside English.",
+          "AfriGuard: 7 languages, 4 frontier models, 1,120 collected responses. The first scoring pass was heuristic, so no attack success rate is claimed until scoring is validated.",
       },
       {
         name: "LLM introspection research",
@@ -205,7 +205,7 @@ const skillGroups: SkillGroup[] = [
       {
         name: "SQL & PostgreSQL",
         evidence:
-          "Learning relational querying and database design for a future SA Data Hub backend.",
+          "Built and tested a PostgreSQL migration for SA Data Hub (schema, ETL and equivalence tests). Production still reads JSON, so this is not shipped work yet.",
       },
       {
         name: "Algorithms & data structures",
